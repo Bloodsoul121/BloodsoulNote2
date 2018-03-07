@@ -3,6 +3,7 @@ package com.example.cgz.bloodsoulnote2.activity.lifecycle;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.view.Menu;
 import android.view.View;
 
 import com.example.cgz.bloodsoulnote2.R;
@@ -169,4 +170,9 @@ public class LifeCycleActivity extends BaseActivity {
      *
      */
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        Log(TAG, "onCreateOptionsMenu");  // 直接不调用啦, api太低
+        return super.onCreateOptionsMenu(menu);
+    }
 }

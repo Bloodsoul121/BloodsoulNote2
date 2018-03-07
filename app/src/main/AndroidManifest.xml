@@ -38,13 +38,40 @@
         </activity>
         <activity android:name=".service.ServiceActivity">
         </activity>
+
         <service android:name=".service.start.StartService"/>
         <service android:name=".service.bind.BindService"/>
         <service android:name=".service.bind.MyIntentService"/>
+
         <provider
-            android:authorities="com.bloodsoul.provider"
             android:name=".provider.BloodsoulProvider"
+            android:authorities="com.bloodsoul.provider"
             android:exported="false"/>
+
+        <activity android:name=".thread.threadpool.ThreadPoolActivity">
+        </activity>
+        <activity android:name=".async.AsyncActivity">
+        </activity>
+        <activity android:name=".async.asynctask.AsyncTaskActivity">
+        </activity>
+        <activity android:name=".async.handler.HandlerActivity">
+        </activity>
+        <activity android:name=".photoframe.PhotoFrameActivity">
+        </activity>
+        <activity android:name=".photoframe.uil.UniversalImageLoaderActivity">
+        </activity>
+        <activity android:name=".menu.MenuActivity">
+        </activity>
+        <activity android:name=".menu.top.TopMenuActivity">
+        </activity>
+        <activity android:name=".cache.CacheActivity">
+        </activity>
+        <activity android:name=".cache.lru.LruCacheActivity">
+        </activity>
+        <activity android:name=".cache.linked.LinkedHashMapActivity">
+        </activity>
+        <activity android:name=".cache.disklrucache.DiskLruCacheActivity">
+        </activity>
     </application>
 
 </manifest>

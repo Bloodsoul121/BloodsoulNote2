@@ -9,8 +9,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.cgz.bloodsoulnote2.activity.ActivityActivity;
+import com.example.cgz.bloodsoulnote2.async.AsyncActivity;
 import com.example.cgz.bloodsoulnote2.base.BaseActivity;
 import com.example.cgz.bloodsoulnote2.broadcastreceiver.BroadcastReceiverActivity;
+import com.example.cgz.bloodsoulnote2.cache.CacheActivity;
+import com.example.cgz.bloodsoulnote2.menu.MenuActivity;
+import com.example.cgz.bloodsoulnote2.photoframe.PhotoFrameActivity;
 import com.example.cgz.bloodsoulnote2.service.ServiceActivity;
 import com.example.cgz.bloodsoulnote2.thread.ThreadActivity;
 
@@ -40,6 +44,10 @@ public class MainActivity extends BaseActivity {
         mDatas.add("3 - service");
         mDatas.add("4 - provider");
         mDatas.add("5 - Thread");
+        mDatas.add("6 - 消息通信");
+        mDatas.add("7 - 图片框架");
+        mDatas.add("8 - 菜单menu");
+        mDatas.add("9 - 缓存Cache");
     }
 
     private void clickRecyclerItem(int position) {
@@ -55,6 +63,17 @@ public class MainActivity extends BaseActivity {
                 break;
             case 5:
                 startActivity(ThreadActivity.class);
+            case 6:
+                startActivity(AsyncActivity.class);
+                break;
+            case 7:
+                startActivity(PhotoFrameActivity.class);
+                break;
+            case 8:
+                startActivity(MenuActivity.class);
+                break;
+            case 9:
+                startActivity(CacheActivity.class);
                 break;
         }
     }
