@@ -7,6 +7,7 @@ import android.widget.AdapterView;
 import com.example.cgz.bloodsoulnote2.R;
 import com.example.cgz.bloodsoulnote2.base.ListViewBaseActivity;
 import com.example.cgz.bloodsoulnote2.cache.disklrucache.DiskLruCacheActivity;
+import com.example.cgz.bloodsoulnote2.cache.disklrucache.photowall.PhotoWallActivity;
 import com.example.cgz.bloodsoulnote2.cache.linked.LinkedHashMapActivity;
 import com.example.cgz.bloodsoulnote2.cache.lru.LruCacheActivity;
 
@@ -23,6 +24,7 @@ public class CacheActivity extends ListViewBaseActivity {
         mDatas.add("LruCache");
         mDatas.add("LinkedHashMap");
         mDatas.add("DiskLruCache");
+        mDatas.add("DiskLruCache - PhotoWall Demo");
     }
 
     @Override
@@ -36,6 +38,9 @@ public class CacheActivity extends ListViewBaseActivity {
                 break;
             case 2:
                 startActivity(DiskLruCacheActivity.class);
+                break;
+            case 3:
+                startActivity(PhotoWallActivity.class);
                 break;
         }
     }

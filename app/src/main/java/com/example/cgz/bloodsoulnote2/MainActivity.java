@@ -48,6 +48,8 @@ public class MainActivity extends BaseActivity {
         mDatas.add("7 - 图片框架");
         mDatas.add("8 - 菜单menu");
         mDatas.add("9 - 缓存Cache");
+        mDatas.add("10 - IO流");
+        mDatas.add("11 - 网络框架");
     }
 
     private void clickRecyclerItem(int position) {
@@ -73,6 +75,12 @@ public class MainActivity extends BaseActivity {
                 startActivity(MenuActivity.class);
                 break;
             case 9:
+                startActivity(CacheActivity.class);
+                break;
+            case 10:
+                startActivity(CacheActivity.class);
+                break;
+            case 11:
                 startActivity(CacheActivity.class);
                 break;
         }

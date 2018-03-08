@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.cgz.bloodsoulnote2">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <application
         android:name=".MainApplication"
         android:allowBackup="true"
@@ -71,6 +74,16 @@
         <activity android:name=".cache.linked.LinkedHashMapActivity">
         </activity>
         <activity android:name=".cache.disklrucache.DiskLruCacheActivity">
+        </activity>
+        <activity android:name=".io.IOActivity">
+        </activity>
+        <activity android:name=".net.NetActivity">
+        </activity>
+        <activity android:name=".io.file.FileIOActivity">
+        </activity>
+        <activity android:name=".net.httpurlconnection.HttpUrlConnectionActivity">
+        </activity>
+        <activity android:name=".cache.disklrucache.photowall.PhotoWallActivity">
         </activity>
     </application>
 
