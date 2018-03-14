@@ -1,4 +1,21 @@
 <resources>
     <string name="app_name">Note2018</string>
     <string name="title_activity_life_cycle">LifeCycleActivity</string>
+
+    <string name="setting_dialog_listview_bottom_cannel">取消</string>
+
+    <string name="pref_current_page">当前页</string>
+    <string name="pref_blank_page">空白页</string>
+    <string name="pref_default_page">默认页</string>
+    <string name="pref_navigation_page">页面导航</string>
+    <string name="pref_news_page">新闻页</string>
+    <string name="pref_other_page">其他</string>
+    <string name="pref_set_as">设置为</string>
+
+    <string name="pref_current_page_value">pref_current_page</string>
+    <string name="pref_blank_page_value">pref_blank_page</string>
+    <string name="pref_default_page_value">pref_default_page</string>
+    <string name="pref_navigation_page_value">pref_navigation_page</string>
+    <string name="pref_news_page_value">pref_news_page</string>
+    <string name="pref_other_page_value">pref_other_page</string>
 </resources>

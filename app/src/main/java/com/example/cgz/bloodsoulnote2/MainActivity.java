@@ -17,6 +17,7 @@ import com.example.cgz.bloodsoulnote2.menu.MenuActivity;
 import com.example.cgz.bloodsoulnote2.photoframe.PhotoFrameActivity;
 import com.example.cgz.bloodsoulnote2.service.ServiceActivity;
 import com.example.cgz.bloodsoulnote2.thread.ThreadActivity;
+import com.example.cgz.bloodsoulnote2.view.ViewActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +51,7 @@ public class MainActivity extends BaseActivity {
         mDatas.add("9 - 缓存Cache");
         mDatas.add("10 - IO流");
         mDatas.add("11 - 网络框架");
+        mDatas.add("12 - Android View");
     }
 
     private void clickRecyclerItem(int position) {
@@ -82,6 +84,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case 11:
                 startActivity(CacheActivity.class);
+                break;
+            case 12:
+                startActivity(ViewActivity.class);
                 break;
         }
     }

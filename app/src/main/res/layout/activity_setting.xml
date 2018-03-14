@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:setting="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.cgz.bloodsoulnote2.view.custom.setting.SettingActivity">
+
+    <com.example.cgz.bloodsoulnote2.view.custom.setting.CustomSettingView
+        setting:BearTitle="title"
+        setting:BearType="list"
+        setting:BearListStyle="right"
+        setting:BearDialogTitle="dialog_title"
+        setting:BearDialogExtra="dialog_extra"
+        setting:BearDialogKey="@array/pref_homepage_choices"
+        setting:BearDialogValue="@array/pref_homepage_values"
+        setting:BearDialogDefaultKey="@string/pref_current_page"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.example.cgz.bloodsoulnote2.view.custom.setting.CustomSettingView
+        setting:BearTitle="title"
+        setting:BearType="normal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.example.cgz.bloodsoulnote2.view.custom.setting.CustomSettingView
+        setting:BearTitle="title"
+        setting:BearType="toggle"
+        setting:BearToggleOpen="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:onClick="testFuction1"
+        android:text="测试功能  SettingListDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:onClick="testFuction2"
+        android:text="测试功能  SettingListDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

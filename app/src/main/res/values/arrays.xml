@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pref_homepage_choices">
+        <item>@string/pref_current_page</item>
+        <item>@string/pref_blank_page</item>
+        <item>@string/pref_default_page</item>
+        <item>@string/pref_navigation_page</item>
+        <item>@string/pref_news_page</item>
+        <item>@string/pref_other_page</item>
+    </string-array>
+    <string-array name="pref_homepage_values" translatable="false">
+        <item>@string/pref_current_page_value</item>
+        <item>@string/pref_blank_page_value</item>
+        <item>@string/pref_default_page_value</item>
+        <item>@string/pref_navigation_page_value</item>
+        <item>@string/pref_news_page_value</item>
+        <item>@string/pref_other_page_value</item>
+    </string-array>
+</resources>

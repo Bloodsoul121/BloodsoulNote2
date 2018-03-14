@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomSettingView">
+        <attr name="BearTitle" format="string"/>
+        <attr name="BearTitleColor" format="color"/>
+        <attr name="BearTitleSize" format="dimension"/>
+        <attr name="BearSubtitle" format="string"/>
+        <attr name="BearSubtitleColor" format="color"/>
+        <attr name="BearSubtitleSize" format="dimension"/>
+        <attr name="BearType" format="integer">
+            <enum name="normal" value="0"/>
+            <enum name="list" value="1"/>
+            <enum name="toggle" value="2"/>
+        </attr>
+        <attr name="BearListStyle" format="integer">
+            <enum name="normal" value="0"/>
+            <enum name="subtitle" value="1"/>
+            <enum name="right" value="2"/>
+        </attr>
+        <attr name="BearToggleOpen" format="boolean"/>
+        <attr name="BearDialogTitle" format="string"/>
+        <attr name="BearDialogExtra" format="string"/>
+        <attr name="BearDialogKey" format="reference"/>
+        <attr name="BearDialogValue" format="reference"/>
+        <attr name="BearDialogDefaultKey" format="string"/>
+    </declare-styleable>
+</resources>

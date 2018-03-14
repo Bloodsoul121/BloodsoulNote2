@@ -29,4 +29,19 @@
 
     <style name="MainApplicationTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
+    <style name="custom_dialog_style" parent="@android:style/Theme.Dialog">
+        <item name="android:windowIsFloating">true</item>    <!--是否浮在界面上-->
+        <item name="android:windowIsTranslucent">true</item> <!--是否半透明-->
+        <item name="android:windowNoTitle">true</item>       <!--是否有标题-->
+        <item name="android:windowBackground">@android:color/white</item> <!--窗口背景色透明-->
+        <item name="android:backgroundDimEnabled">true</item> <!--背景是否模糊显示-->
+        <item name="android:windowAnimationStyle">@style/custom_dialog_anim</item>
+    </style>
+
+    <!-- 归属地选择框的动画 -->
+    <style name="custom_dialog_anim">
+        <item name="android:windowEnterAnimation">@anim/custom_dialog_enter</item>
+        <item name="android:windowExitAnimation">@anim/custom_dialog_exit</item>
+    </style>
+
 </resources>

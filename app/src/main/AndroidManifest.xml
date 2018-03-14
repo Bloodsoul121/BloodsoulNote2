@@ -85,6 +85,16 @@
         </activity>
         <activity android:name=".cache.disklrucache.photowall.PhotoWallActivity">
         </activity>
+        <activity android:name=".view.ViewActivity">
+        </activity>
+        <activity android:name=".view.custom.CustomViewActivity">
+        </activity>
+        <activity android:name=".view.custom.setting.SettingActivity">
+        </activity>
+        <activity android:name=".view.system.SystemViewActivity">
+        </activity>
+        <activity android:name=".view.system.dialog.DialogActivity">
+        </activity>
     </application>
 
 </manifest>
