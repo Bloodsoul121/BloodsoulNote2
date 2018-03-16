@@ -1,5 +1,6 @@
 package com.example.cgz.bloodsoulnote2.photoframe.uil;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,9 +17,11 @@ import com.nostra13.universalimageloader.cache.memory.impl.UsingFreqLimitedMemor
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +45,8 @@ public class UniversalImageLoaderActivity extends BaseActivity {
         ListView listView = (ListView) findViewById(R.id.listview);
         mAdapter = new ItemListAdapter();
         listView.setAdapter(mAdapter);
+
+//        listView.setOnScrollListener(new PauseOnScrollListener());
     }
 
     private void init() {
@@ -103,7 +108,28 @@ public class UniversalImageLoaderActivity extends BaseActivity {
 
             holder.tv.setText("item - " + position);
             ImageLoader.getInstance().displayImage(mDatas.get(position), holder.iv, mOptions);
-            return null;
+            ImageLoader.getInstance().loadImage(mDatas.get(position), new ImageLoadingListener() {
+                @Override
+                public void onLoadingStarted(String s, View view) {
+
+                }
+
+                @Override
+                public void onLoadingFailed(String s, View view, FailReason failReason) {
+
+                }
+
+                @Override
+                public void onLoadingComplete(String s, View view, Bitmap bitmap) {
+
+                }
+
+                @Override
+                public void onLoadingCancelled(String s, View view) {
+
+                }
+            });
+            return convertView;
         }
 
         class ViewHolder {

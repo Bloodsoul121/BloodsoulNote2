@@ -9,7 +9,10 @@
     tools:context="com.example.cgz.bloodsoulnote2.view.custom.setting.SettingActivity">
 
     <com.example.cgz.bloodsoulnote2.view.custom.setting.CustomSettingView
-        setting:BearTitle="title"
+        android:id="@+id/custom_setting_view"
+        setting:BearShowBottomLine="true"
+        setting:BearGroupTitle="设置"
+        setting:BearTitle="字号设置"
         setting:BearType="list"
         setting:BearListStyle="right"
         setting:BearDialogTitle="dialog_title"
@@ -43,6 +46,11 @@
         android:onClick="testFuction2"
         android:text="测试功能  SettingListDialog"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.example.cgz.bloodsoulnote2.view.custom.setting.SettingSwitchView
+        android:id="@+id/setting_switch_view"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
 </LinearLayout>

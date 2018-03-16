@@ -68,11 +68,10 @@ public class DialogListViewAdapter extends BaseAdapter {
 
         holder.mContentView.setText(mDatas.get(position));
 
-        // TODO: 18-3-13
         if (mChosePosition == position) {
-//        holder.mImageView.setImageResource
+            holder.mImageView.setImageResource(R.drawable.abc_btn_radio_on2);
         } else {
-
+            holder.mImageView.setImageResource(R.drawable.abc_btn_radio_off2);
         }
 
         return convertView;

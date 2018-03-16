@@ -11,10 +11,19 @@ import java.util.List;
 
 public class SettingActivity extends BaseActivity {
 
+    private CustomSettingView mCustomSettingView;
+    private SettingSwitchView mSwitchView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+        initView();
+    }
+
+    private void initView() {
+        mCustomSettingView = (CustomSettingView) findViewById(R.id.custom_setting_view);
+        mSwitchView = (SettingSwitchView) findViewById(R.id.setting_switch_view);
     }
 
     public void testFuction1(View view) {

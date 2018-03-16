@@ -95,6 +95,14 @@
         </activity>
         <activity android:name=".view.system.dialog.DialogActivity">
         </activity>
+        <activity android:name=".ui.UIActivity">
+        </activity>
+        <activity android:name=".ui.colormatrix.ColorMatrixActivity">
+        </activity>
+        <activity android:name=".imitate.ImitateActivity">
+        </activity>
+        <activity android:name=".imitate.slipupdown.SlipUpDownActivity">
+        </activity>
     </application>
 
 </manifest>

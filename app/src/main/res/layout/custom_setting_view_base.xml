@@ -1,48 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/setting_root_view"
-                android:paddingLeft="16dp"
-                android:paddingBottom="6dp"
-                android:paddingTop="6dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:switch="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:paddingLeft="16dp"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/title"
+        android:visibility="gone"
+        android:id="@+id/group_title"
         android:ellipsize="end"
         android:lines="1"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/choosedtext"
+        android:paddingTop="15dp"
+        android:paddingBottom="5dp"
+        android:textColor="#ff9000"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <TextView
-        android:visibility="gone"
-        android:id="@+id/subtitle"
-        android:ellipsize="end"
-        android:lines="1"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <RelativeLayout
+        android:id="@+id/setting_container_view"
+        android:minHeight="56dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:visibility="gone"
-        android:id="@+id/switchimage"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:paddingBottom="6dp"
+            android:paddingTop="6dp"
+            android:paddingRight="14dp"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:visibility="gone"
-        android:id="@+id/choosedtext"
-        android:ellipsize="end"
-        android:lines="1"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-</RelativeLayout>
+                <TextView
+                    android:id="@+id/title"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+                <com.example.cgz.bloodsoulnote2.view.custom.setting.SettingSwitchView
+                    android:visibility="gone"
+                    android:id="@+id/switchimage"
+                    switch:SwitchOnOff="on"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/choosedtext"
+                    android:layout_marginLeft="8dp"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/subtitle"
+                android:ellipsize="end"
+                android:lines="1"
+                android:layout_alignParentLeft="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <View
+        android:visibility="gone"
+        android:id="@+id/bottom_line"
+        android:background="#33828282"
+        android:layout_width="match_parent"
+        android:layout_height="2px"/>
+
+</LinearLayout>

@@ -13,10 +13,12 @@ import com.example.cgz.bloodsoulnote2.async.AsyncActivity;
 import com.example.cgz.bloodsoulnote2.base.BaseActivity;
 import com.example.cgz.bloodsoulnote2.broadcastreceiver.BroadcastReceiverActivity;
 import com.example.cgz.bloodsoulnote2.cache.CacheActivity;
+import com.example.cgz.bloodsoulnote2.imitate.ImitateActivity;
 import com.example.cgz.bloodsoulnote2.menu.MenuActivity;
 import com.example.cgz.bloodsoulnote2.photoframe.PhotoFrameActivity;
 import com.example.cgz.bloodsoulnote2.service.ServiceActivity;
 import com.example.cgz.bloodsoulnote2.thread.ThreadActivity;
+import com.example.cgz.bloodsoulnote2.ui.UIActivity;
 import com.example.cgz.bloodsoulnote2.view.ViewActivity;
 
 import java.util.ArrayList;
@@ -52,6 +54,8 @@ public class MainActivity extends BaseActivity {
         mDatas.add("10 - IO流");
         mDatas.add("11 - 网络框架");
         mDatas.add("12 - Android View");
+        mDatas.add("13 - 颜色 布局 矩阵");
+        mDatas.add("14 - 高仿项目");
     }
 
     private void clickRecyclerItem(int position) {
@@ -87,6 +91,12 @@ public class MainActivity extends BaseActivity {
                 break;
             case 12:
                 startActivity(ViewActivity.class);
+                break;
+            case 13:
+                startActivity(UIActivity.class);
+                break;
+            case 14:
+                startActivity(ImitateActivity.class);
                 break;
         }
     }

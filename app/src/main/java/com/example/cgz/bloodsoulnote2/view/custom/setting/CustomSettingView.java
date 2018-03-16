@@ -7,9 +7,9 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -42,9 +42,13 @@ public class CustomSettingView extends LinearLayout implements View.OnClickListe
 
     private TextView mTitleView;
     private TextView mSubtitleView;
-    private ImageView mSwitchImage;
+    private SettingSwitchView mSwitchImage;
     private TextView mChoosedTextView;
+    private TextView mGroupTitleView;
+    private View mBottomLineView;
 
+    private String mGroupTitle;
+    private boolean mIsShowBottomLine;
     private String mAttrTitle;
     private String mAttrSubtitle;
     private int mAttrTitleColor;
@@ -87,6 +91,8 @@ public class CustomSettingView extends LinearLayout implements View.OnClickListe
 
     private void initAttr(Context context, AttributeSet attrs) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CustomSettingView);
+        mGroupTitle = typedArray.getString(R.styleable.CustomSettingView_BearGroupTitle);
+        mIsShowBottomLine = typedArray.getBoolean(R.styleable.CustomSettingView_BearShowBottomLine, false);
         mAttrTitle = typedArray.getString(R.styleable.CustomSettingView_BearTitle);
         mAttrSubtitle = typedArray.getString(R.styleable.CustomSettingView_BearSubtitle);
         mAttrTitleColor = typedArray.getColor(R.styleable.CustomSettingView_BearTitleColor, mDefaultTitleColor);
@@ -112,19 +118,35 @@ public class CustomSettingView extends LinearLayout implements View.OnClickListe
     private void initView(Context context) {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         View rootView = layoutInflater.inflate(R.layout.custom_setting_view_base, this);
-        RelativeLayout containerView = (RelativeLayout) rootView.findViewById(R.id.setting_root_view);
+        RelativeLayout containerView = (RelativeLayout) rootView.findViewById(R.id.setting_container_view);
         mTitleView = (TextView) rootView.findViewById(R.id.title);
         mSubtitleView = (TextView) rootView.findViewById(R.id.subtitle);
-        mSwitchImage = (ImageView) rootView.findViewById(R.id.switchimage);
+        mSwitchImage = (SettingSwitchView) rootView.findViewById(R.id.switchimage);
         mChoosedTextView = (TextView) rootView.findViewById(R.id.choosedtext);
-
+        mGroupTitleView = (TextView) rootView.findViewById(R.id.group_title);
+        mBottomLineView = rootView.findViewById(R.id.bottom_line);
         containerView.setOnClickListener(this);
     }
 
     private void initStatus() {
+        handleGroupTitle();
         handleTitle();
         handleSubtitle();
         handleType();
+        handleBottomLine();
+    }
+
+    private void handleBottomLine() {
+        mBottomLineView.setVisibility(mIsShowBottomLine ? VISIBLE : GONE);
+    }
+
+    private void handleGroupTitle() {
+        if (TextUtils.isEmpty(mGroupTitle)) {
+            mGroupTitleView.setVisibility(GONE);
+        } else {
+            mGroupTitleView.setVisibility(VISIBLE);
+            mGroupTitleView.setText(mGroupTitle);
+        }
     }
 
     private void handleTitle() {
@@ -132,14 +154,14 @@ public class CustomSettingView extends LinearLayout implements View.OnClickListe
             mTitleView.setText(mAttrTitle);
         }
         mTitleView.setTextColor(mAttrTitleColor);
-        mTitleView.setTextSize(mAttrTitleSize);
+        mTitleView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mAttrTitleSize);
     }
 
     private void handleSubtitle() {
         if (!TextUtils.isEmpty(mAttrSubtitle)) {
             mSubtitleView.setText(mAttrSubtitle);
             mSubtitleView.setTextColor(mAttrSubtitleColor);
-            mSubtitleView.setTextSize(mAttrSubtitleSize);
+            mSubtitleView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mAttrSubtitleSize);
             mSubtitleView.setVisibility(VISIBLE);
         } else {
             mSubtitleView.setVisibility(GONE);
@@ -197,8 +219,7 @@ public class CustomSettingView extends LinearLayout implements View.OnClickListe
 
     private void handleSwitch() {
         mSwitchImage.setVisibility(VISIBLE);
-        // TODO: 18-3-13
-
+        mSwitchImage.setSwitchStatus(mIsSwitchOpen);
     }
 
     private void log(String msg) {
@@ -313,7 +334,11 @@ public class CustomSettingView extends LinearLayout implements View.OnClickListe
     public void setSwitchOnOff(boolean isOpen) {
         if (mType == TYPE_SWITCH) {
             mIsSwitchOpen = isOpen;
-
+            if (mIsSwitchOpen) {
+                mSwitchImage.toggleOff();
+            } else {
+                mSwitchImage.toggleOn();
+            }
         }
     }
 
