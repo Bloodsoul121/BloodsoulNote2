@@ -13,7 +13,9 @@ import com.example.cgz.bloodsoulnote2.async.AsyncActivity;
 import com.example.cgz.bloodsoulnote2.base.BaseActivity;
 import com.example.cgz.bloodsoulnote2.broadcastreceiver.BroadcastReceiverActivity;
 import com.example.cgz.bloodsoulnote2.cache.CacheActivity;
+import com.example.cgz.bloodsoulnote2.custom.CustomProjectActivity;
 import com.example.cgz.bloodsoulnote2.imitate.ImitateActivity;
+import com.example.cgz.bloodsoulnote2.ipc.IPCActivity;
 import com.example.cgz.bloodsoulnote2.menu.MenuActivity;
 import com.example.cgz.bloodsoulnote2.photoframe.PhotoFrameActivity;
 import com.example.cgz.bloodsoulnote2.service.ServiceActivity;
@@ -55,7 +57,9 @@ public class MainActivity extends BaseActivity {
         mDatas.add("11 - 网络框架");
         mDatas.add("12 - Android View");
         mDatas.add("13 - 颜色 布局 矩阵");
-        mDatas.add("14 - 高仿项目");
+        mDatas.add("14 - 进程通信 IPC");
+        mDatas.add("15 - 高仿项目");
+        mDatas.add("16 - 自定义项目");
     }
 
     private void clickRecyclerItem(int position) {
@@ -96,7 +100,13 @@ public class MainActivity extends BaseActivity {
                 startActivity(UIActivity.class);
                 break;
             case 14:
+                startActivity(IPCActivity.class);
+                break;
+            case 15:
                 startActivity(ImitateActivity.class);
+                break;
+            case 16:
+                startActivity(CustomProjectActivity.class);
                 break;
         }
     }

@@ -6,6 +6,8 @@ import android.widget.AdapterView;
 
 import com.example.cgz.bloodsoulnote2.R;
 import com.example.cgz.bloodsoulnote2.base.ListViewBaseActivity;
+import com.example.cgz.bloodsoulnote2.photoframe.glide.GlideActivity;
+import com.example.cgz.bloodsoulnote2.photoframe.picasso.PicassoActivity;
 import com.example.cgz.bloodsoulnote2.photoframe.uil.UniversalImageLoaderActivity;
 
 public class PhotoFrameActivity extends ListViewBaseActivity {
@@ -19,6 +21,8 @@ public class PhotoFrameActivity extends ListViewBaseActivity {
     @Override
     protected void initData() {
         mDatas.add("Universal-Image-Loader");
+        mDatas.add("Picasso");
+        mDatas.add("Glide");
     }
 
     @Override
@@ -26,6 +30,12 @@ public class PhotoFrameActivity extends ListViewBaseActivity {
         switch (position) {
             case 0:
                 startActivity(UniversalImageLoaderActivity.class);
+                break;
+            case 1:
+                startActivity(PicassoActivity.class);
+                break;
+            case 2:
+                startActivity(GlideActivity.class);
                 break;
         }
     }
