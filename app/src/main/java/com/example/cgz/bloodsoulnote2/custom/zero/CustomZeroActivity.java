@@ -25,7 +25,7 @@ public class CustomZeroActivity extends BaseActivity {
 
     @BindView(R.id.webview)
     WebView mWebview;
-    @BindView(R.id.recyclerview)
+//    @BindView(R.id.recyclerview)
     RecyclerView mRecyclerview;
     @BindView(R.id.scrollview)
     CustomScrollView mScrollview;
@@ -44,7 +44,7 @@ public class CustomZeroActivity extends BaseActivity {
     private void init() {
         mContext = this;
         initWebview();
-        initRecyclerView();
+//        initRecyclerView();
     }
 
     private void initWebview() {
@@ -68,9 +68,13 @@ public class CustomZeroActivity extends BaseActivity {
 
     private void initRecyData() {
         mRecyDatas = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10; i++) {
             mRecyDatas.add("recy - item - " + i);
         }
+    }
+
+    public void clickTop(View view) {
+        toast("top 拿到啦点击事件");
     }
 
     private class RecyAdapter extends RecyclerView.Adapter<RecyAdapter.RecyHolder> {

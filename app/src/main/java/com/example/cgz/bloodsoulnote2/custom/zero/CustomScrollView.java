@@ -4,8 +4,6 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.os.Build;
 import android.support.annotation.Px;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -21,7 +19,7 @@ public class CustomScrollView extends FrameLayout {
     private static final String TAG = "CustomScrollView";
 
     private View mHeadView;
-    private RecyclerView mBottomView;
+    private View mBottomView;
     private int mMinY = 0;
     private int mMaxY = 0;
     private float mLastY;
@@ -31,6 +29,7 @@ public class CustomScrollView extends FrameLayout {
     private VelocityTracker mVelocityTracker;
     private int mLastScrollerY;
     private boolean mIsWebViewCanMove = true;//手动操作滑动时，禁止WebView的滚动
+    private CustomScrollHelper mHelper;
 
     public CustomScrollView(Context context) {
         super(context);
@@ -51,6 +50,7 @@ public class CustomScrollView extends FrameLayout {
         mScroller = new Scroller(context);
         final ViewConfiguration configuration = ViewConfiguration.get(context);
         mMaximumVelocity = configuration.getScaledMaximumFlingVelocity();
+        mHelper = new CustomScrollHelper();
     }
 
     private enum DIRECTION {
@@ -69,21 +69,31 @@ public class CustomScrollView extends FrameLayout {
     private void initChildrenView(int childCount) {
         if (childCount > 0 && mHeadView == null) {
             mHeadView = getChildAt(0);
-            mHeadView.setOnTouchListener(new OnTouchListener() {
+        }
+        if (childCount > 1 && mBottomView == null) {
+            mBottomView = getChildAt(1);
+        }
+        setWebViewTouchListener(mHeadView);
+        setWebViewTouchListener(mBottomView);
+    }
+
+    private void setWebViewTouchListener(View view) {
+        if (view == null) {
+            return;
+        }
+        if (view instanceof WebView) {
+            view.setOnTouchListener(new OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
                     return !mIsWebViewCanMove;
                 }
             });
         }
-        if (childCount > 1 && mBottomView == null) {
-            mBottomView = (RecyclerView) getChildAt(1);
-        }
     }
 
     private void updateCanScrollMaxLength(int childCount) {
         if (childCount > 1 && mBottomView != null) {
-            mMaxY = mBottomView.getMeasuredHeight();
+            mMaxY = Math.min(mHeadView.getMeasuredHeight(), mBottomView.getMeasuredHeight());
         } else {
             mMaxY = 0;
         }
@@ -92,13 +102,14 @@ public class CustomScrollView extends FrameLayout {
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         if (mHeadView != null) {
-            mHeadView.layout(left, top, right, bottom);
+            int mHeadViewMeasuredHeight = mHeadView.getMeasuredHeight();
+            mHeadView.layout(left, top, right, mHeadViewMeasuredHeight);
             if (mBottomView != null) {
-                int delta = mBottomView.getBottom() - (bottom + mBottomView.getMeasuredHeight());
+                int delta = mBottomView.getBottom() - (bottom + mHeadViewMeasuredHeight);
                 if (delta > 0) {
                     scrollTo(0, mMaxY);
                 }
-                mBottomView.layout(left, bottom, right, bottom + mBottomView.getMeasuredHeight());
+                mBottomView.layout(left, mHeadViewMeasuredHeight, right, bottom + mHeadViewMeasuredHeight);
             }
         }
     }
@@ -144,11 +155,12 @@ public class CustomScrollView extends FrameLayout {
         if (status == 0) {
             mIsWebViewCanMove = false;
             smoothBottomToTop();
+            smoothTopToBottom();
             scrollBy(0, Math.round(deltaY));
-        } else if (isRecyclerViewTop() && mDirection == DIRECTION.DOWN && status == 2) {
+        } else if (isBottomViewTop() && mDirection == DIRECTION.DOWN && status == 2) {
             mIsWebViewCanMove = false;
             scrollBy(0, Math.round(deltaY));
-        } else if (isWebViewBottom() && mDirection == DIRECTION.UP && status == 1){
+        } else if (isTopViewBottom() && mDirection == DIRECTION.UP && status == 1){
             mIsWebViewCanMove = false;
             smoothBottomToTop();
             scrollBy(0, Math.round(deltaY));
@@ -218,11 +230,11 @@ public class CustomScrollView extends FrameLayout {
         int distance = mScroller.getFinalY() - currY;
         int duration = mScroller.getDuration() - mScroller.timePassed();
         int velocity = getScrollerVelocity(distance, duration);
-        if (isRecyclerViewTop() && mDirection == DIRECTION.UP && status == 2) {// 手势向上划
+        if (isBottomViewTop() && mDirection == DIRECTION.UP && status == 2) {// 手势向上划
             smoothScrollByBottomView(velocity);
             mScroller.forceFinished(true);
             Log.i(TAG, "computeScroll up");
-        } else if (isWebViewBottom() && mDirection == DIRECTION.DOWN && status == 1){// 手势向下划
+        } else if (isTopViewBottom() && mDirection == DIRECTION.DOWN && status == 1){// 手势向下划
             smoothScrollByHeadView(-velocity);
             mScroller.forceFinished(true);
             Log.i(TAG, "computeScroll down");
@@ -231,8 +243,8 @@ public class CustomScrollView extends FrameLayout {
 
     public boolean autoScroll(int currY, int status) {
         if (status == 0
-                || (isRecyclerViewTop() && mDirection == DIRECTION.DOWN && status == 2)
-                || (isWebViewBottom() && mDirection == DIRECTION.UP && status == 1)) {
+                || (isBottomViewTop() && mDirection == DIRECTION.DOWN && status == 2)
+                || (isTopViewBottom() && mDirection == DIRECTION.UP && status == 1)) {
             autoScrollBy(0, Math.round((currY - mLastScrollerY)));
             invalidate();
             mLastScrollerY = currY;
@@ -257,36 +269,12 @@ public class CustomScrollView extends FrameLayout {
         }
     }
 
-    private boolean isWebViewBottom(){
-        float approximation = 1.0f;
-        float webContentHeight;
-        float webNow;
-        if (mHeadView instanceof WebView) {
-            WebView localWebView = (WebView) mHeadView;
-            webContentHeight = localWebView.getContentHeight() * localWebView.getScale();// webview的高度
-            webNow = localWebView.getHeight() + localWebView.getScrollY();// 当前webview的高度
-            return webNow/webContentHeight == approximation;
-        }
-        return false;
+    private boolean isTopViewBottom(){
+        return mHelper.isViewBottom(mHeadView);
     }
 
-    private boolean isRecyclerViewTop() {
-        if (mBottomView == null) {
-            return true;
-        }
-        RecyclerView recyclerView = mBottomView;
-        if (recyclerView != null) {
-            RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
-            if (layoutManager instanceof LinearLayoutManager) {
-                int firstVisibleItemPosition = ((LinearLayoutManager) layoutManager).findFirstVisibleItemPosition();
-                View childAt = recyclerView.getChildAt(0);
-                if (childAt == null || (firstVisibleItemPosition == 0 &&
-                        layoutManager.getDecoratedTop(childAt) == 0)) {
-                    return true;
-                }
-            }
-        }
-        return false;
+    private boolean isBottomViewTop() {
+        return mHelper.isViewTop(mBottomView);
     }
 
     private void initOrResetVelocityTracker(MotionEvent event) {
@@ -323,15 +311,11 @@ public class CustomScrollView extends FrameLayout {
     }
 
     private void smoothScrollByHeadView(int scrollerVelocity) {
-        if (mHeadView instanceof WebView) {
-            ((WebView) mHeadView).flingScroll(0, scrollerVelocity);
-        }
+        mHelper.smoothScrollWithVelocity(mHeadView, scrollerVelocity);
     }
 
     private void smoothScrollByBottomView(int scrollerVelocity) {
-        if (mBottomView != null) {
-            mBottomView.fling(0, scrollerVelocity);
-        }
+        mHelper.smoothScrollWithVelocity(mBottomView, scrollerVelocity);
     }
 
     public void smoothScrollToTop() {
@@ -340,25 +324,23 @@ public class CustomScrollView extends FrameLayout {
         scrollTo(0, 0);
     }
 
+    private void smoothTopToBottom() {
+        mHelper.smoothScrollToBottom(mHeadView);
+    }
+
     private void smoothBottomToTop() {
-        if (mBottomView != null) {
-            mBottomView.scrollToPosition(0);
-        }
+        mHelper.smoothScrollToTop(mBottomView);
     }
 
     public void smoothScrollToMostHot() {
         smoothScrollWebViewToBottom();
-        if (mBottomView != null) {
-            mBottomView.smoothScrollToPosition(0);
-        }
+        mHelper.smoothScrollToTop(mBottomView);
         scrollTo(0, mMaxY);
     }
 
     public void smoothScrollToMostNew(int position) {
         smoothScrollWebViewToBottom();
-        if (mBottomView != null) {
-            mBottomView.smoothScrollToPosition(position);
-        }
+        mHelper.smoothScrollToPosition(mBottomView, position);
         scrollTo(0, mMaxY);
     }
 

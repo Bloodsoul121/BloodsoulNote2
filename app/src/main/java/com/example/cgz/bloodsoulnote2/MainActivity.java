@@ -13,10 +13,10 @@ import com.example.cgz.bloodsoulnote2.async.AsyncActivity;
 import com.example.cgz.bloodsoulnote2.base.BaseActivity;
 import com.example.cgz.bloodsoulnote2.broadcastreceiver.BroadcastReceiverActivity;
 import com.example.cgz.bloodsoulnote2.cache.CacheActivity;
-import com.example.cgz.bloodsoulnote2.custom.CustomProjectActivity;
 import com.example.cgz.bloodsoulnote2.imitate.ImitateActivity;
 import com.example.cgz.bloodsoulnote2.ipc.IPCActivity;
 import com.example.cgz.bloodsoulnote2.menu.MenuActivity;
+import com.example.cgz.bloodsoulnote2.mode.ModeActivity;
 import com.example.cgz.bloodsoulnote2.photoframe.PhotoFrameActivity;
 import com.example.cgz.bloodsoulnote2.service.ServiceActivity;
 import com.example.cgz.bloodsoulnote2.thread.ThreadActivity;
@@ -60,6 +60,7 @@ public class MainActivity extends BaseActivity {
         mDatas.add("14 - 进程通信 IPC");
         mDatas.add("15 - 高仿项目");
         mDatas.add("16 - 自定义项目");
+        mDatas.add("17 - 设计模式");
     }
 
     private void clickRecyclerItem(int position) {
@@ -106,7 +107,10 @@ public class MainActivity extends BaseActivity {
                 startActivity(ImitateActivity.class);
                 break;
             case 16:
-                startActivity(CustomProjectActivity.class);
+                startActivity(IPCActivity.class);
+                break;
+            case 17:
+                startActivity(ModeActivity.class);
                 break;
         }
     }

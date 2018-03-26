@@ -22,7 +22,7 @@ import java.net.Socket;
 
 public class SocketServer extends Service {
 
-    public static int PORT = 8868;
+    public static int PORT = 8838;
     private boolean mIsServerDestroyed;
     private Socket mClient;
     private BufferedReader in;
@@ -79,7 +79,7 @@ public class SocketServer extends Service {
         @Override
         public void run() {
             Log.i("overlord", "TcpServer run");
-            ServerSocket socket = null;
+            ServerSocket socket;
             try {
                 socket = new ServerSocket(PORT);
             } catch (IOException e) {

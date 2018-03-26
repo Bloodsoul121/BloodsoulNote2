@@ -85,7 +85,7 @@ public class SocketActivity extends BaseActivity {
         Socket socket = null;
         while (socket == null) {
             try {
-                socket = new Socket("localhost", SocketServer.PORT);
+                socket = new Socket("10.0.2.2", SocketServer.PORT);
                 // 写入流
                 mPrintWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())));
             } catch (IOException e) {
