@@ -15,6 +15,7 @@ import com.example.cgz.bloodsoulnote2.broadcastreceiver.BroadcastReceiverActivit
 import com.example.cgz.bloodsoulnote2.cache.CacheActivity;
 import com.example.cgz.bloodsoulnote2.imitate.ImitateActivity;
 import com.example.cgz.bloodsoulnote2.ipc.IPCActivity;
+import com.example.cgz.bloodsoulnote2.jni.JniActivity;
 import com.example.cgz.bloodsoulnote2.menu.MenuActivity;
 import com.example.cgz.bloodsoulnote2.mode.ModeActivity;
 import com.example.cgz.bloodsoulnote2.photoframe.PhotoFrameActivity;
@@ -61,6 +62,7 @@ public class MainActivity extends BaseActivity {
         mDatas.add("15 - 高仿项目");
         mDatas.add("16 - 自定义项目");
         mDatas.add("17 - 设计模式");
+        mDatas.add("18 - JNI");
     }
 
     private void clickRecyclerItem(int position) {
@@ -111,6 +113,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case 17:
                 startActivity(ModeActivity.class);
+                break;
+            case 18:
+                startActivity(JniActivity.class);
                 break;
         }
     }

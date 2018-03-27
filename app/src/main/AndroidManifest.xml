@@ -134,6 +134,8 @@
         </activity>
         <activity android:name=".mode.proxy.ProxyActivity">
         </activity>
+        <activity android:name=".jni.JniActivity">
+        </activity>
     </application>
 
 </manifest>
