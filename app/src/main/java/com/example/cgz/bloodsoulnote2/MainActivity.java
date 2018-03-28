@@ -13,6 +13,7 @@ import com.example.cgz.bloodsoulnote2.async.AsyncActivity;
 import com.example.cgz.bloodsoulnote2.base.BaseActivity;
 import com.example.cgz.bloodsoulnote2.broadcastreceiver.BroadcastReceiverActivity;
 import com.example.cgz.bloodsoulnote2.cache.CacheActivity;
+import com.example.cgz.bloodsoulnote2.custom.CustomProjectActivity;
 import com.example.cgz.bloodsoulnote2.imitate.ImitateActivity;
 import com.example.cgz.bloodsoulnote2.ipc.IPCActivity;
 import com.example.cgz.bloodsoulnote2.jni.JniActivity;
@@ -109,7 +110,7 @@ public class MainActivity extends BaseActivity {
                 startActivity(ImitateActivity.class);
                 break;
             case 16:
-                startActivity(IPCActivity.class);
+                startActivity(CustomProjectActivity.class);
                 break;
             case 17:
                 startActivity(ModeActivity.class);

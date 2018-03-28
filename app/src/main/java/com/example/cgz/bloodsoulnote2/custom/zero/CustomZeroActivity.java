@@ -25,7 +25,7 @@ public class CustomZeroActivity extends BaseActivity {
 
     @BindView(R.id.webview)
     WebView mWebview;
-//    @BindView(R.id.recyclerview)
+    @BindView(R.id.recyclerview)
     RecyclerView mRecyclerview;
     @BindView(R.id.scrollview)
     CustomScrollView mScrollview;
@@ -44,7 +44,7 @@ public class CustomZeroActivity extends BaseActivity {
     private void init() {
         mContext = this;
         initWebview();
-//        initRecyclerView();
+        initRecyclerView();
     }
 
     private void initWebview() {

@@ -136,6 +136,8 @@
         </activity>
         <activity android:name=".jni.JniActivity">
         </activity>
+        <activity android:name=".imitate.zhihuad.ZhihuAdActivity">
+        </activity>
     </application>
 
 </manifest>

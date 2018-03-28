@@ -14,28 +14,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!--<android.support.v7.widget.RecyclerView-->
-            <!--android:id="@+id/recyclerview"-->
-            <!--android:overScrollMode="never"-->
-            <!--android:splitMotionEvents="false"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"/>-->
-
-        <LinearLayout
-            android:background="#565656"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:overScrollMode="never"
+            android:splitMotionEvents="false"
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="wrap_content"/>
 
-            <TextView
-                android:onClick="clickTop"
-                android:text="top"
-                android:gravity="center"
-                android:padding="10dp"
-                android:background="#5d5d5d"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+        <!--<LinearLayout-->
+            <!--android:background="#565656"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="200dp">-->
 
-        </LinearLayout>
+            <!--<TextView-->
+                <!--android:onClick="clickTop"-->
+                <!--android:text="top"-->
+                <!--android:gravity="center"-->
+                <!--android:padding="10dp"-->
+                <!--android:background="#5d5d5d"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"/>-->
+
+        <!--</LinearLayout>-->
 
         <WebView
             android:id="@+id/webview"
