@@ -6,6 +6,8 @@ import android.widget.AdapterView;
 
 import com.example.cgz.bloodsoulnote2.R;
 import com.example.cgz.bloodsoulnote2.base.ListViewBaseActivity;
+import com.example.cgz.bloodsoulnote2.ipc.aidl.AidlActivity;
+import com.example.cgz.bloodsoulnote2.ipc.messenger.MessengerActivity;
 import com.example.cgz.bloodsoulnote2.ipc.socket.SocketActivity;
 
 public class IPCActivity extends ListViewBaseActivity {
@@ -30,6 +32,12 @@ public class IPCActivity extends ListViewBaseActivity {
         switch (position) {
             case 0:
                 startActivity(SocketActivity.class);
+                break;
+            case 2:
+                startActivity(AidlActivity.class);
+                break;
+            case 3:
+                startActivity(MessengerActivity.class);
                 break;
         }
     }

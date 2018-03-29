@@ -31,7 +31,7 @@ public class HandleThreadActivity extends BaseActivity {
             @Override
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
-                Log(TAG, "handleMessage --> " + msg.what);
+                log(TAG, "handleMessage --> " + msg.what);
             }
         };
 

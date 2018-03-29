@@ -1,4 +1,4 @@
-package com.example.cgz.bloodsoulnote2.net;
+package com.example.cgz.bloodsoulnote2.xuliehua;
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,35 +6,29 @@ import android.widget.AdapterView;
 
 import com.example.cgz.bloodsoulnote2.R;
 import com.example.cgz.bloodsoulnote2.base.ListViewBaseActivity;
-import com.example.cgz.bloodsoulnote2.net.httpurlconnection.HttpUrlConnectionActivity;
-import com.example.cgz.bloodsoulnote2.net.okhttp.OkhttpActivity;
+import com.example.cgz.bloodsoulnote2.xuliehua.serializable.SerializableActivity;
 
-public class NetActivity extends ListViewBaseActivity {
+public class XuliehuaActivity extends ListViewBaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_net);
+        setContentView(R.layout.activity_xuliehua);
     }
 
     @Override
     protected void initData() {
-        mDatas.add("HttpClient");
-        mDatas.add("HttpURLConnection");
-        mDatas.add("Volley");
-        mDatas.add("OkHttp");
+        mDatas.add("Serializable");
+        mDatas.add("Parcelable");
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch (position) {
             case 0:
+                startActivity(SerializableActivity.class);
                 break;
             case 1:
-                startActivity(HttpUrlConnectionActivity.class);
-                break;
-            case 3:
-                startActivity(OkhttpActivity.class);
                 break;
         }
     }

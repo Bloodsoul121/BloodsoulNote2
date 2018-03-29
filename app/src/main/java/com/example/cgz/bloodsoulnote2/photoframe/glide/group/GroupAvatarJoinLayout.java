@@ -75,11 +75,11 @@ public class GroupAvatarJoinLayout {
         float x5 = (float) (-s1 * Math.cos(19 * Math.PI / 180));
         float y5 = (float) (s1 * Math.sin(18 * Math.PI / 180));
 
-        // Log.d(TAG, "x1:" + x1 + "/y1:" + y1);
-        // Log.d(TAG, "x2:" + x2 + "/y2:" + y2);
-        // Log.d(TAG, "x3:" + x3 + "/y3:" + y3);
-        // Log.d(TAG, "x4:" + x4 + "/y4:" + y4);
-        // Log.d(TAG, "x5:" + x5 + "/y5:" + y5);
+        // log.d(TAG, "x1:" + x1 + "/y1:" + y1);
+        // log.d(TAG, "x2:" + x2 + "/y2:" + y2);
+        // log.d(TAG, "x3:" + x3 + "/y3:" + y3);
+        // log.d(TAG, "x4:" + x4 + "/y4:" + y4);
+        // log.d(TAG, "x5:" + x5 + "/y5:" + y5);
 
         // 居中 Y轴偏移量
         float xx1 = (dimension - cd - y3 - s1) / 2;
@@ -131,10 +131,10 @@ public class GroupAvatarJoinLayout {
         float x4 = x1;
         float y4 = y3;
 
-        // Log.d(TAG, "x1:" + x1 + "/y1:" + y1);
-        // Log.d(TAG, "x2:" + x2 + "/y2:" + y2);
-        // Log.d(TAG, "x3:" + x3 + "/y3:" + y3);
-        // Log.d(TAG, "x4:" + x4 + "/y4:" + y4);
+        // log.d(TAG, "x1:" + x1 + "/y1:" + y1);
+        // log.d(TAG, "x2:" + x2 + "/y2:" + y2);
+        // log.d(TAG, "x3:" + x3 + "/y3:" + y3);
+        // log.d(TAG, "x4:" + x4 + "/y4:" + y4);
 
         // 居中 X轴偏移量
         float xx1 = (dimension - cd - s1) / 2;
@@ -210,8 +210,8 @@ public class GroupAvatarJoinLayout {
         float x2 = s1;
         float y2 = s1;
 
-        // Log.d(TAG, "x1:" + x1 + "/y1:" + y1);
-        // Log.d(TAG, "x2:" + x2 + "/y2:" + y2);
+        // log.d(TAG, "x1:" + x1 + "/y1:" + y1);
+        // log.d(TAG, "x2:" + x2 + "/y2:" + y2);
 
         // 居中 X轴偏移量
         float xx1 = (dimension - cd - s1) / 2;

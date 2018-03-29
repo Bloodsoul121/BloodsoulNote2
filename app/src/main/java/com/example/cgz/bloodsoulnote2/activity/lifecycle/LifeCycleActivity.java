@@ -20,7 +20,7 @@ public class LifeCycleActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_life_cycle);
-        Log(TAG, "onCreate");
+        log(TAG, "onCreate");
     }
 
     /**
@@ -33,7 +33,7 @@ public class LifeCycleActivity extends BaseActivity {
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);  // 必须set, 否则, 后续的getIntent()都是得到老的Intent
-        Log(TAG, "onNewIntent");
+        log(TAG, "onNewIntent");
     }
 
     /**
@@ -44,7 +44,7 @@ public class LifeCycleActivity extends BaseActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log(TAG, "onRestart");
+        log(TAG, "onRestart");
     }
 
     /**
@@ -54,7 +54,7 @@ public class LifeCycleActivity extends BaseActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log(TAG, "onStart");
+        log(TAG, "onStart");
     }
 
     /**
@@ -63,7 +63,7 @@ public class LifeCycleActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Log(TAG, "onResume");
+        log(TAG, "onResume");
     }
 
     /**
@@ -74,7 +74,7 @@ public class LifeCycleActivity extends BaseActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        Log(TAG, "onPause");
+        log(TAG, "onPause");
     }
 
     /**
@@ -83,7 +83,7 @@ public class LifeCycleActivity extends BaseActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        Log(TAG, "onStop");
+        log(TAG, "onStop");
     }
 
     /**
@@ -92,7 +92,7 @@ public class LifeCycleActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log(TAG, "onDestroy");
+        log(TAG, "onDestroy");
     }
 
     /**
@@ -103,13 +103,13 @@ public class LifeCycleActivity extends BaseActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        Log(TAG, "onSaveInstanceState 1");
+        log(TAG, "onSaveInstanceState 1");
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
         super.onSaveInstanceState(outState, outPersistentState);
-        Log(TAG, "onSaveInstanceState 2");
+        log(TAG, "onSaveInstanceState 2");
     }
 
     /**
@@ -118,13 +118,13 @@ public class LifeCycleActivity extends BaseActivity {
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        Log(TAG, "onRestoreInstanceState 1");
+        log(TAG, "onRestoreInstanceState 1");
     }
 
     @Override
     public void onRestoreInstanceState(Bundle savedInstanceState, PersistableBundle persistentState) {
         super.onRestoreInstanceState(savedInstanceState, persistentState);
-        Log(TAG, "onRestoreInstanceState 2");
+        log(TAG, "onRestoreInstanceState 2");
     }
 
     /**
@@ -172,7 +172,7 @@ public class LifeCycleActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        Log(TAG, "onCreateOptionsMenu");  // 直接不调用啦, api太低
+        log(TAG, "onCreateOptionsMenu");  // 直接不调用啦, api太低
         return super.onCreateOptionsMenu(menu);
     }
 }

@@ -31,7 +31,7 @@ public class LinkedHashMapActivity extends BaseActivity {
         map.get(3);
 
         for (Map.Entry entry : map.entrySet()) {
-            Log(TAG, "key --> " + entry.getKey() + ", value --> " + entry.getValue());
+            log(TAG, "key --> " + entry.getKey() + ", value --> " + entry.getValue());
         }
 
         /*
@@ -58,7 +58,7 @@ public class LinkedHashMapActivity extends BaseActivity {
         map.get(3);
 
         for (Map.Entry entry : map.entrySet()) {
-            Log(TAG, "key --> " + entry.getKey() + ", value --> " + entry.getValue());
+            log(TAG, "key --> " + entry.getKey() + ", value --> " + entry.getValue());
         }
 
         /*

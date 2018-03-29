@@ -15,15 +15,18 @@ import com.example.cgz.bloodsoulnote2.broadcastreceiver.BroadcastReceiverActivit
 import com.example.cgz.bloodsoulnote2.cache.CacheActivity;
 import com.example.cgz.bloodsoulnote2.custom.CustomProjectActivity;
 import com.example.cgz.bloodsoulnote2.imitate.ImitateActivity;
+import com.example.cgz.bloodsoulnote2.io.IOActivity;
 import com.example.cgz.bloodsoulnote2.ipc.IPCActivity;
 import com.example.cgz.bloodsoulnote2.jni.JniActivity;
 import com.example.cgz.bloodsoulnote2.menu.MenuActivity;
 import com.example.cgz.bloodsoulnote2.mode.ModeActivity;
+import com.example.cgz.bloodsoulnote2.net.NetActivity;
 import com.example.cgz.bloodsoulnote2.photoframe.PhotoFrameActivity;
 import com.example.cgz.bloodsoulnote2.service.ServiceActivity;
 import com.example.cgz.bloodsoulnote2.thread.ThreadActivity;
 import com.example.cgz.bloodsoulnote2.ui.UIActivity;
 import com.example.cgz.bloodsoulnote2.view.ViewActivity;
+import com.example.cgz.bloodsoulnote2.xuliehua.XuliehuaActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,6 +67,7 @@ public class MainActivity extends BaseActivity {
         mDatas.add("16 - 自定义项目");
         mDatas.add("17 - 设计模式");
         mDatas.add("18 - JNI");
+        mDatas.add("19 - 序列化");
     }
 
     private void clickRecyclerItem(int position) {
@@ -92,10 +96,10 @@ public class MainActivity extends BaseActivity {
                 startActivity(CacheActivity.class);
                 break;
             case 10:
-                startActivity(CacheActivity.class);
+                startActivity(IOActivity.class);
                 break;
             case 11:
-                startActivity(CacheActivity.class);
+                startActivity(NetActivity.class);
                 break;
             case 12:
                 startActivity(ViewActivity.class);
@@ -117,6 +121,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case 18:
                 startActivity(JniActivity.class);
+                break;
+            case 19:
+                startActivity(XuliehuaActivity.class);
                 break;
         }
     }

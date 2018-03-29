@@ -33,18 +33,18 @@ public class BaseActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    protected void Log(String msg) {
-        Log(TAG, msg);
+    protected void log(String msg) {
+        log(TAG, msg);
     }
 
-    protected void Log(String tag, String msg) {
+    protected void log(String tag, String msg) {
         if (Config.DEBUG) {
             Log.i(tag, msg);
         }
     }
 
     protected void logCurrentThread() {
-        Log("current thread --> " + Thread.currentThread().getName());
+        log("current thread --> " + Thread.currentThread().getName());
     }
 
     protected void toast(final String msg) {

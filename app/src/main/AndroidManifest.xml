@@ -18,7 +18,9 @@
             android:name="com.example.cgz.bloodsoulnote2.photoframe.glide.group.GlideConfiguration"
             android:value="GlideModule"/>
 
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -137,6 +139,26 @@
         <activity android:name=".jni.JniActivity">
         </activity>
         <activity android:name=".imitate.zhihuad.ZhihuAdActivity">
+        </activity>
+        <activity android:name=".xuliehua.XuliehuaActivity">
+        </activity>
+        <activity android:name=".xuliehua.serializable.SerializableActivity">
+        </activity>
+
+        <service
+            android:name=".ipc.aidl.AIDLService"
+            android:process=":remote"/>
+
+        <activity android:name=".ipc.aidl.AidlActivity">
+        </activity>
+        <activity android:name=".ipc.messenger.MessengerActivity">
+        </activity>
+
+        <service
+            android:name=".ipc.messenger.MessengerService"
+            android:process=":remote"/>
+
+        <activity android:name=".net.okhttp.OkhttpActivity">
         </activity>
     </application>
 

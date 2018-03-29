@@ -58,7 +58,7 @@ public class MarketTrendActivity extends BaseActivity {
         mCheckHandler = new Handler(mHandlerThread.getLooper()) {
             @Override
             public void handleMessage(Message msg) {
-                Log("handleMessage --> msg.what : " + msg.what);
+                log("handleMessage --> msg.what : " + msg.what);
                 logCurrentThread();
 
                 checkForUpdate();
