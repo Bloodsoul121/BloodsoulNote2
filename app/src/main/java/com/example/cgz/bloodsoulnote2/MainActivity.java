@@ -15,6 +15,7 @@ import com.example.cgz.bloodsoulnote2.broadcastreceiver.BroadcastReceiverActivit
 import com.example.cgz.bloodsoulnote2.cache.CacheActivity;
 import com.example.cgz.bloodsoulnote2.custom.CustomProjectActivity;
 import com.example.cgz.bloodsoulnote2.imitate.ImitateActivity;
+import com.example.cgz.bloodsoulnote2.inject.InjectActivity;
 import com.example.cgz.bloodsoulnote2.io.IOActivity;
 import com.example.cgz.bloodsoulnote2.ipc.IPCActivity;
 import com.example.cgz.bloodsoulnote2.jni.JniActivity;
@@ -68,6 +69,7 @@ public class MainActivity extends BaseActivity {
         mDatas.add("17 - 设计模式");
         mDatas.add("18 - JNI");
         mDatas.add("19 - 序列化");
+        mDatas.add("20 - 依赖注入");
     }
 
     private void clickRecyclerItem(int position) {
@@ -124,6 +126,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case 19:
                 startActivity(XuliehuaActivity.class);
+                break;
+            case 20:
+                startActivity(InjectActivity.class);
                 break;
         }
     }

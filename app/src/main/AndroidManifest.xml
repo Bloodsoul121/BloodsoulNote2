@@ -164,6 +164,10 @@
         </activity>
         <activity android:name=".net.retrofit.Retrofit2Activity">
         </activity>
+        <activity android:name=".inject.InjectActivity">
+        </activity>
+        <activity android:name=".inject.annotation.AnnotationActivity">
+        </activity>
     </application>
 
 </manifest>
