@@ -32,6 +32,7 @@
             <enum name="off" value="0"/>
             <enum name="on" value="1"/>
         </attr>
+        <attr name="AutoOnOff" format="boolean"/>
     </declare-styleable>
 
     <declare-styleable name="UCIndexView">

@@ -158,7 +158,11 @@
             android:name=".ipc.messenger.MessengerService"
             android:process=":remote"/>
 
-        <activity android:name=".net.okhttp.OkhttpActivity">
+        <activity android:name=".net.okhttp.Okhttp3Activity">
+        </activity>
+        <activity android:name=".net.okhttp.Okhttp2Activity">
+        </activity>
+        <activity android:name=".net.retrofit.Retrofit2Activity">
         </activity>
     </application>
 

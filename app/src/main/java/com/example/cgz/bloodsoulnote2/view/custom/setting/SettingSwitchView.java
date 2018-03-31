@@ -34,6 +34,8 @@ public class SettingSwitchView extends RelativeLayout implements View.OnClickLis
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.SettingSwitchView);
         int status = typedArray.getInt(R.styleable.SettingSwitchView_SwitchOnOff, SWITCH_OFF);
         mIsOpen = (status == SWITCH_ON);
+        boolean isAutoOnOff = typedArray.getBoolean(R.styleable.SettingSwitchView_AutoOnOff, false);
+        setAutoOnOff(isAutoOnOff);
         typedArray.recycle();
     }
 
@@ -41,7 +43,7 @@ public class SettingSwitchView extends RelativeLayout implements View.OnClickLis
         LayoutInflater.from(context).inflate(R.layout.layout_setting_switch, this);
         mSwitchBg = (ImageView) findViewById(R.id.switch_bg);
         mSwitchBtn = (ImageView) findViewById(R.id.switch_btn);
-        setOnClickListener(this);
+
         initSwitchOnOff(true);
     }
 
@@ -85,6 +87,14 @@ public class SettingSwitchView extends RelativeLayout implements View.OnClickLis
         ObjectAnimator animator = ObjectAnimator.ofFloat(mSwitchBtn, "translationX", mSwitchBtnWidth - mSwitchBgWidth, 0);
         animator.setDuration(300);
         animator.start();
+    }
+
+    public void setAutoOnOff(boolean isAuto) {
+        if (isAuto) {
+            setOnClickListener(this);
+        } else {
+            setOnClickListener(null);
+        }
     }
 
     @Override

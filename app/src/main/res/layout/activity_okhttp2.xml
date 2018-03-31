@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.cgz.bloodsoulnote2.net.okhttp.Okhttp3Activity">
+    tools:context="com.example.cgz.bloodsoulnote2.net.okhttp.Okhttp2Activity">
 
     <Button
         android:onClick="clickBtn1"
@@ -15,42 +15,32 @@
 
     <Button
         android:onClick="clickBtn2"
-        android:text="异步 POST 请求"
+        android:text="同步 GET 请求"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <Button
         android:onClick="clickBtn3"
-        android:text="异步 上传文件"
+        android:text="异步 POST 请求"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <Button
         android:onClick="clickBtn4"
-        android:text="异步 下载文件"
+        android:text="设置缓存"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="OnClick"/>
+        android:layout_height="wrap_content"/>
 
     <Button
         android:onClick="clickBtn5"
-        android:text="异步 上传Multipart文件 仅参考"
+        android:text="一直请求网络数据"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="OnClick"/>
+        android:layout_height="wrap_content"/>
 
     <Button
         android:onClick="clickBtn6"
-        android:text="设置超时时间和缓存"
+        android:text="设置超时时间"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="OnClick"/>
-
-    <Button
-        android:onClick="clickBtn7"
-        android:text="取消请求"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="OnClick"/>
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

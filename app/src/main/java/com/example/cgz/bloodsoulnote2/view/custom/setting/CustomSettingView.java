@@ -246,10 +246,12 @@ public class CustomSettingView extends LinearLayout implements View.OnClickListe
                 showDialog();
                 break;
             case TYPE_SWITCH:
-                setSwitchOnOff(!mIsSwitchOpen);
+                mIsSwitchOpen = !mIsSwitchOpen;
+                setSwitchOnOff(mIsSwitchOpen);
                 if (mCallBack != null) {
                     mCallBack.onClickCallBack(getId(), mIsSwitchOpen, null, null, -1);
                 }
+                log("mIsSwitchOpen --> " + mIsSwitchOpen);
                 break;
         }
     }
@@ -333,11 +335,10 @@ public class CustomSettingView extends LinearLayout implements View.OnClickListe
 
     public void setSwitchOnOff(boolean isOpen) {
         if (mType == TYPE_SWITCH) {
-            mIsSwitchOpen = isOpen;
-            if (mIsSwitchOpen) {
-                mSwitchImage.toggleOff();
-            } else {
+            if (isOpen) {
                 mSwitchImage.toggleOn();
+            } else {
+                mSwitchImage.toggleOff();
             }
         }
     }

@@ -50,6 +50,7 @@
 
     <com.example.cgz.bloodsoulnote2.view.custom.setting.SettingSwitchView
         android:id="@+id/setting_switch_view"
+        setting:AutoOnOff="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
