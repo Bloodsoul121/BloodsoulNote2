@@ -168,6 +168,12 @@
         </activity>
         <activity android:name=".inject.annotation.AnnotationActivity">
         </activity>
+        <activity android:name=".view.custom.test.TestCustomViewActivity">
+        </activity>
+        <activity android:name=".window.WindowActivity">
+        </activity>
+        <activity android:name=".view.custom.slide.SlideConflictActivity">
+        </activity>
     </application>
 
 </manifest>

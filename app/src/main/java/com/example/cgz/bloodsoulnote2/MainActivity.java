@@ -27,6 +27,7 @@ import com.example.cgz.bloodsoulnote2.service.ServiceActivity;
 import com.example.cgz.bloodsoulnote2.thread.ThreadActivity;
 import com.example.cgz.bloodsoulnote2.ui.UIActivity;
 import com.example.cgz.bloodsoulnote2.view.ViewActivity;
+import com.example.cgz.bloodsoulnote2.window.WindowActivity;
 import com.example.cgz.bloodsoulnote2.xuliehua.XuliehuaActivity;
 
 import java.util.ArrayList;
@@ -70,6 +71,7 @@ public class MainActivity extends BaseActivity {
         mDatas.add("18 - JNI");
         mDatas.add("19 - 序列化");
         mDatas.add("20 - 依赖注入");
+        mDatas.add("21 - Window");
     }
 
     private void clickRecyclerItem(int position) {
@@ -129,6 +131,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case 20:
                 startActivity(InjectActivity.class);
+                break;
+            case 21:
+                startActivity(WindowActivity.class);
                 break;
         }
     }
