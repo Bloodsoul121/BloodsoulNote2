@@ -174,6 +174,8 @@
         </activity>
         <activity android:name=".view.custom.slide.SlideConflictActivity">
         </activity>
+        <activity android:name=".classloader.ClassLoaderActivity">
+        </activity>
     </application>
 
 </manifest>
