@@ -6,6 +6,10 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
+    <meta-data
+        android:name="UMENG_CHANNEL"
+        android:value="${UMENG_CHANNEL_VALUE}"/>
+
     <application
         android:name=".MainApplication"
         android:allowBackup="true"
@@ -175,6 +179,8 @@
         <activity android:name=".view.custom.slide.SlideConflictActivity">
         </activity>
         <activity android:name=".classloader.ClassLoaderActivity">
+        </activity>
+        <activity android:name=".arithmetic.ArithmeticActivity">
         </activity>
     </application>
 

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.cgz.bloodsoulnote2.activity.ActivityActivity;
+import com.example.cgz.bloodsoulnote2.arithmetic.ArithmeticActivity;
 import com.example.cgz.bloodsoulnote2.async.AsyncActivity;
 import com.example.cgz.bloodsoulnote2.base.BaseActivity;
 import com.example.cgz.bloodsoulnote2.broadcastreceiver.BroadcastReceiverActivity;
@@ -74,6 +75,7 @@ public class MainActivity extends BaseActivity {
         mDatas.add("20 - 依赖注入");
         mDatas.add("21 - Window");
         mDatas.add("22 - 类加载器");
+        mDatas.add("23 - 数据结构与算法");
     }
 
     private void clickRecyclerItem(int position) {
@@ -139,6 +141,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case 22:
                 startActivity(ClassLoaderActivity.class);
+                break;
+            case 23:
+                startActivity(ArithmeticActivity.class);
                 break;
         }
     }

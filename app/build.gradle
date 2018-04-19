@@ -5,6 +5,19 @@ if (project.isModule as boolean) {
 }
 
 android {
+
+    signingConfigs {
+        release {
+            storeFile file(KEY_PATH)
+            storePassword KEY_PASS
+            keyAlias ALIAS_NAME
+            keyPassword ALIAS_PASS
+        }
+        debug {
+
+        }
+    }
+
     compileSdkVersion 26
     buildToolsVersion "26.0.2"
     defaultConfig {
@@ -19,12 +32,42 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig = signingConfigs.debug
         }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
     }
+
+    productFlavors {
+        wandoujia {
+        }
+        qihu360 {
+        }
+        baidu {
+        }
+        productFlavors.all {
+            flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+        }
+    }
+
+    android.applicationVariants.all { variant ->
+        def file = variant.outputs[0].outputFile
+        variant.outputs[0].outputFile = new File(file.parent,
+                file.name.replace(".apk", "-" + defaultConfig.versionName + "-" + releaseTime() + ".apk"))
+
+    }
+
+}
+
+def releaseTime() {
+    return new Date().format("yyyy-MM-dd")
 }
 
 dependencies {
