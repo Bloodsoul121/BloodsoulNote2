@@ -16,6 +16,8 @@ import com.example.cgz.bloodsoulnote2.broadcastreceiver.BroadcastReceiverActivit
 import com.example.cgz.bloodsoulnote2.cache.CacheActivity;
 import com.example.cgz.bloodsoulnote2.classloader.ClassLoaderActivity;
 import com.example.cgz.bloodsoulnote2.custom.CustomProjectActivity;
+import com.example.cgz.bloodsoulnote2.databinding.DataBindingActivity;
+import com.example.cgz.bloodsoulnote2.fragment.FragmentActivity;
 import com.example.cgz.bloodsoulnote2.imitate.ImitateActivity;
 import com.example.cgz.bloodsoulnote2.inject.InjectActivity;
 import com.example.cgz.bloodsoulnote2.io.IOActivity;
@@ -76,6 +78,8 @@ public class MainActivity extends BaseActivity {
         mDatas.add("21 - Window");
         mDatas.add("22 - 类加载器");
         mDatas.add("23 - 数据结构与算法");
+        mDatas.add("24 - Fragment");
+        mDatas.add("25 - DataBinding");
     }
 
     private void clickRecyclerItem(int position) {
@@ -144,6 +148,12 @@ public class MainActivity extends BaseActivity {
                 break;
             case 23:
                 startActivity(ArithmeticActivity.class);
+                break;
+            case 24:
+                startActivity(FragmentActivity.class);
+                break;
+            case 25:
+                startActivity(DataBindingActivity.class);
                 break;
         }
     }

@@ -64,6 +64,10 @@ android {
 
     }
 
+    dataBinding {
+        enabled true
+    }
+
 }
 
 def releaseTime() {

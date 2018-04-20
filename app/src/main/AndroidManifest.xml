@@ -182,6 +182,14 @@
         </activity>
         <activity android:name=".arithmetic.ArithmeticActivity">
         </activity>
+        <activity android:name=".fragment.FragmentActivity">
+        </activity>
+        <activity android:name=".fragment.lifecycle.LifeCycleActivity">
+        </activity>
+        <activity android:name=".databinding.DataBindingActivity">
+        </activity>
+        <activity android:name=".databinding.demo1.Demo1Activity">
+        </activity>
     </application>
 
 </manifest>
