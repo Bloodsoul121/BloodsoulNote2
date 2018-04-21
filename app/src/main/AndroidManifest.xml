@@ -190,6 +190,12 @@
         </activity>
         <activity android:name=".databinding.demo1.Demo1Activity">
         </activity>
+        <activity android:name=".view.system.xrecyclerview.XRecyclerViewActivity">
+        </activity>
+        <activity android:name=".view.system.xrecyclerview.XDemo1Activity">
+        </activity>
+        <activity android:name=".view.system.xrecyclerview.XDemo2Activity">
+        </activity>
     </application>
 
 </manifest>
