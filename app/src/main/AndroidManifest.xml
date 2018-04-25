@@ -196,6 +196,8 @@
         </activity>
         <activity android:name=".view.system.xrecyclerview.XDemo2Activity">
         </activity>
+        <activity android:name=".mvvm.demo1.MvvmActivity">
+        </activity>
     </application>
 
 </manifest>

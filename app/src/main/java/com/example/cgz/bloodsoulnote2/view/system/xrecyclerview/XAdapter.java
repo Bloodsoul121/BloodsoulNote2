@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by jianghejie on 15/11/26.
  */
-public class XAdapter extends RecyclerView.Adapter<XAdapter.ViewHolder> {
+public class XAdapter extends RecyclerView.Adapter<XAdapter.XViewHolder> {
 
     public void setClickCallBack(ItemClickCallBack clickCallBack) {
         this.clickCallBack = clickCallBack;
@@ -40,14 +40,14 @@ public class XAdapter extends RecyclerView.Adapter<XAdapter.ViewHolder> {
 
     //创建新View，被LayoutManager所调用
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+    public XViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.xitem,viewGroup,false);
-        return new ViewHolder(view);
+        return new XViewHolder(view);
     }
 
     //将数据与界面进行绑定的操作
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder,final int position) {
+    public void onBindViewHolder(XViewHolder viewHolder,final int position) {
         viewHolder.mTextView.setText(datas.get(position));
         viewHolder.mTextView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -61,7 +61,7 @@ public class XAdapter extends RecyclerView.Adapter<XAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position, List<Object> payloads) {
+    public void onBindViewHolder(XViewHolder holder, int position, List<Object> payloads) {
         super.onBindViewHolder(holder, position, payloads);
     }
 
@@ -75,9 +75,9 @@ public class XAdapter extends RecyclerView.Adapter<XAdapter.ViewHolder> {
     }
 
     //自定义的ViewHolder，持有每个Item的的所有界面元素
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class XViewHolder extends RecyclerView.ViewHolder {
         public TextView mTextView;
-        public ViewHolder(View view){
+        public XViewHolder(View view){
             super(view);
             mTextView = (TextView) view.findViewById(R.id.text);
         }

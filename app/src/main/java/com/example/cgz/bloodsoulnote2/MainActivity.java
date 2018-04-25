@@ -25,6 +25,7 @@ import com.example.cgz.bloodsoulnote2.ipc.IPCActivity;
 import com.example.cgz.bloodsoulnote2.jni.JniActivity;
 import com.example.cgz.bloodsoulnote2.menu.MenuActivity;
 import com.example.cgz.bloodsoulnote2.mode.ModeActivity;
+import com.example.cgz.bloodsoulnote2.mvvm.demo1.MvvmActivity;
 import com.example.cgz.bloodsoulnote2.net.NetActivity;
 import com.example.cgz.bloodsoulnote2.photoframe.PhotoFrameActivity;
 import com.example.cgz.bloodsoulnote2.service.ServiceActivity;
@@ -80,6 +81,7 @@ public class MainActivity extends BaseActivity {
         mDatas.add("23 - 数据结构与算法");
         mDatas.add("24 - Fragment");
         mDatas.add("25 - DataBinding");
+        mDatas.add("26 - MVVM模式");
     }
 
     private void clickRecyclerItem(int position) {
@@ -154,6 +156,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case 25:
                 startActivity(DataBindingActivity.class);
+                break;
+            case 26:
+                startActivity(MvvmActivity.class);
                 break;
         }
     }
