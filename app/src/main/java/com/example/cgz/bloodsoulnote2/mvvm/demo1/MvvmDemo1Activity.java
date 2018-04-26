@@ -7,13 +7,17 @@ import android.support.v7.widget.LinearLayoutManager;
 import com.example.cgz.bloodsoulnote2.R;
 import com.example.cgz.bloodsoulnote2.base.BaseActivity;
 import com.example.cgz.bloodsoulnote2.databinding.ActivityMvvmBinding;
-import com.example.cgz.bloodsoulnote2.view.system.xrecyclerview.XAdapter;
+import com.example.cgz.bloodsoulnote2.mvvm.demo1.adapter.NewsAdapter;
+import com.example.cgz.bloodsoulnote2.mvvm.demo1.i.INewsView;
+import com.example.cgz.bloodsoulnote2.mvvm.demo1.viewmodel.NewsVM;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
-public class MvvmActivity extends BaseActivity {
+public class MvvmDemo1Activity extends BaseActivity implements INewsView{
 
     private ActivityMvvmBinding mBinding;
+    private NewsVM mNewsVM;
+    private NewsAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +26,7 @@ public class MvvmActivity extends BaseActivity {
 
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_mvvm);
         initView();
+        mNewsVM = new NewsVM(this, mAdapter);
     }
 
     private void initView() {
@@ -30,12 +35,14 @@ public class MvvmActivity extends BaseActivity {
         mBinding.newsRv.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override
             public void onRefresh() {
-
+                //下拉刷新
+                mNewsVM.loadRefreshData();
             }
 
             @Override
             public void onLoadMore() {
-
+                //上拉加载更多
+                mNewsVM.loadMoreData();
             }
         });
 
@@ -43,7 +50,22 @@ public class MvvmActivity extends BaseActivity {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mBinding.newsRv.setLayoutManager(linearLayoutManager);
 
-        XAdapter adapter = new XAdapter();
-        mBinding.newsRv.setAdapter(adapter);
+        mAdapter = new NewsAdapter(this);
+        mBinding.newsRv.setAdapter(mAdapter);
+    }
+
+    @Override
+    public void loadStart(int loadType) {
+
+    }
+
+    @Override
+    public void loadComplete() {
+
+    }
+
+    @Override
+    public void loadFailure(String message) {
+
     }
 }

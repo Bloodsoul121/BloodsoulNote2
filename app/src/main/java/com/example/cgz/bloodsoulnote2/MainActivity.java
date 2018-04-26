@@ -25,7 +25,7 @@ import com.example.cgz.bloodsoulnote2.ipc.IPCActivity;
 import com.example.cgz.bloodsoulnote2.jni.JniActivity;
 import com.example.cgz.bloodsoulnote2.menu.MenuActivity;
 import com.example.cgz.bloodsoulnote2.mode.ModeActivity;
-import com.example.cgz.bloodsoulnote2.mvvm.demo1.MvvmActivity;
+import com.example.cgz.bloodsoulnote2.mvvm.MvvmActivity;
 import com.example.cgz.bloodsoulnote2.net.NetActivity;
 import com.example.cgz.bloodsoulnote2.photoframe.PhotoFrameActivity;
 import com.example.cgz.bloodsoulnote2.service.ServiceActivity;
