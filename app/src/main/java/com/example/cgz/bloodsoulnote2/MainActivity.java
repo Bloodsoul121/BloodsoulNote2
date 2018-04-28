@@ -12,6 +12,7 @@ import com.example.cgz.bloodsoulnote2.activity.ActivityActivity;
 import com.example.cgz.bloodsoulnote2.arithmetic.ArithmeticActivity;
 import com.example.cgz.bloodsoulnote2.async.AsyncActivity;
 import com.example.cgz.bloodsoulnote2.base.BaseActivity;
+import com.example.cgz.bloodsoulnote2.bluetooth.BlueToothActivity;
 import com.example.cgz.bloodsoulnote2.broadcastreceiver.BroadcastReceiverActivity;
 import com.example.cgz.bloodsoulnote2.cache.CacheActivity;
 import com.example.cgz.bloodsoulnote2.classloader.ClassLoaderActivity;
@@ -82,6 +83,7 @@ public class MainActivity extends BaseActivity {
         mDatas.add("24 - Fragment");
         mDatas.add("25 - DataBinding");
         mDatas.add("26 - MVVM模式");
+        mDatas.add("27 - 蓝牙");
     }
 
     private void clickRecyclerItem(int position) {
@@ -159,6 +161,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case 26:
                 startActivity(MvvmActivity.class);
+                break;
+            case 27:
+                startActivity(BlueToothActivity.class);
                 break;
         }
     }

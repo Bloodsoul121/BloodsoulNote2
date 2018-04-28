@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.example.cgz.bloodsoulnote2.R;
 import com.example.cgz.bloodsoulnote2.base.BaseActivity;
+import com.orhanobut.logger.Logger;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -55,10 +56,10 @@ public class Okhttp3Activity extends BaseActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (response.cacheResponse() != null) {
-                    log(TAG, response.cacheResponse().toString());
+                    Logger.i(TAG, response.cacheResponse().toString());
                 } else {
-                    log(TAG, response.body().string());
-                    log(TAG, response.networkResponse().toString());
+                    Logger.i(TAG, response.body().string());
+                    Logger.i(TAG, response.networkResponse().toString());
                 }
             }
         });

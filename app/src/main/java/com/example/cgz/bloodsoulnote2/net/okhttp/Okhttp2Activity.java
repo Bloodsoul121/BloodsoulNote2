@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.example.cgz.bloodsoulnote2.R;
 import com.example.cgz.bloodsoulnote2.base.BaseActivity;
+import com.orhanobut.logger.Logger;
 import com.squareup.okhttp.Cache;
 import com.squareup.okhttp.CacheControl;
 import com.squareup.okhttp.Call;
@@ -43,7 +44,7 @@ public class Okhttp2Activity extends BaseActivity {
 
             @Override
             public void onResponse(Response response) throws IOException {
-                log(TAG, response.body().string());
+                Logger.i(TAG, response.body().string());
             }
         });
     }
