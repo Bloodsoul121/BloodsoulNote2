@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.cgz.bloodsoulnote2">
+    package="com.example.cgz.bloodsoulnote2">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!-- 蓝牙 -->
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
     <meta-data
         android:name="UMENG_CHANNEL"
-        android:value="${UMENG_CHANNEL_VALUE}"/>
+        android:value="${UMENG_CHANNEL_VALUE}" />
 
     <application
         android:name=".MainApplication"
@@ -23,190 +23,118 @@
         android:theme="@style/MainApplicationTheme">
         <meta-data
             android:name="com.example.cgz.bloodsoulnote2.photoframe.glide.group.GlideConfiguration"
-            android:value="GlideModule"/>
+            android:value="GlideModule" />
 
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ActivityActivity">
-        </activity>
+        <activity android:name=".activity.ActivityActivity"></activity>
         <activity
             android:name=".activity.lifecycle.LifeCycleActivity"
             android:label="@string/title_activity_life_cycle"
-            android:theme="@style/MainApplicationTheme.NoActionBar">
-        </activity>
-        <activity android:name=".activity.lifecycle.SecondActivity">
-        </activity>
-        <activity android:name=".broadcastreceiver.BroadcastReceiverActivity">
-        </activity>
-        <activity android:name=".thread.handlethread.HandleThreadActivity">
-        </activity>
-        <activity android:name=".thread.ThreadActivity">
-        </activity>
-        <activity android:name=".thread.handlethread.MarketTrendActivity">
-        </activity>
-        <activity android:name=".thread.handlethread.MutilDownloadActivity">
-        </activity>
-        <activity android:name=".service.ServiceActivity">
-        </activity>
+            android:theme="@style/MainApplicationTheme.NoActionBar"></activity>
+        <activity android:name=".activity.lifecycle.SecondActivity"></activity>
+        <activity android:name=".broadcastreceiver.BroadcastReceiverActivity"></activity>
+        <activity android:name=".thread.handlethread.HandleThreadActivity"></activity>
+        <activity android:name=".thread.ThreadActivity"></activity>
+        <activity android:name=".thread.handlethread.MarketTrendActivity"></activity>
+        <activity android:name=".thread.handlethread.MutilDownloadActivity"></activity>
+        <activity android:name=".service.ServiceActivity"></activity>
 
-        <service android:name=".service.start.StartService"/>
-        <service android:name=".service.bind.BindService"/>
-        <service android:name=".service.bind.MyIntentService"/>
+        <service android:name=".service.start.StartService" />
+        <service android:name=".service.bind.BindService" />
+        <service android:name=".service.bind.MyIntentService" />
 
         <provider
             android:name=".provider.BloodsoulProvider"
             android:authorities="com.bloodsoul.provider"
-            android:exported="false"/>
+            android:exported="false" />
 
-        <activity android:name=".thread.threadpool.ThreadPoolActivity">
-        </activity>
-        <activity android:name=".async.AsyncActivity">
-        </activity>
-        <activity android:name=".async.asynctask.AsyncTaskActivity">
-        </activity>
-        <activity android:name=".async.handler.HandlerActivity">
-        </activity>
-        <activity android:name=".photoframe.PhotoFrameActivity">
-        </activity>
-        <activity android:name=".photoframe.uil.UniversalImageLoaderActivity">
-        </activity>
-        <activity android:name=".menu.MenuActivity">
-        </activity>
-        <activity android:name=".menu.top.TopMenuActivity">
-        </activity>
-        <activity android:name=".cache.CacheActivity">
-        </activity>
-        <activity android:name=".cache.lru.LruCacheActivity">
-        </activity>
-        <activity android:name=".cache.linked.LinkedHashMapActivity">
-        </activity>
-        <activity android:name=".cache.disklrucache.DiskLruCacheActivity">
-        </activity>
-        <activity android:name=".io.IOActivity">
-        </activity>
-        <activity android:name=".net.NetActivity">
-        </activity>
-        <activity android:name=".io.file.FileIOActivity">
-        </activity>
-        <activity android:name=".net.httpurlconnection.HttpUrlConnectionActivity">
-        </activity>
-        <activity android:name=".cache.disklrucache.photowall.PhotoWallActivity">
-        </activity>
-        <activity android:name=".view.ViewActivity">
-        </activity>
-        <activity android:name=".view.custom.CustomViewActivity">
-        </activity>
-        <activity android:name=".view.custom.setting.SettingActivity">
-        </activity>
-        <activity android:name=".view.system.SystemViewActivity">
-        </activity>
-        <activity android:name=".view.system.dialog.DialogActivity">
-        </activity>
-        <activity android:name=".ui.UIActivity">
-        </activity>
-        <activity android:name=".ui.colormatrix.ColorMatrixActivity">
-        </activity>
-        <activity android:name=".imitate.ImitateActivity">
-        </activity>
-        <activity android:name=".imitate.slipupdown.SlipUpDownActivity">
-        </activity>
-        <activity android:name=".photoframe.picasso.PicassoActivity">
-        </activity>
-        <activity android:name=".photoframe.glide.GlideActivity">
-        </activity>
-        <activity android:name=".photoframe.picasso.PicassoUseActivity">
-        </activity>
-        <activity android:name=".photoframe.glide.GlideUseActivity">
-        </activity>
-        <activity android:name=".photoframe.glide.group.GlideImageGroupActivity">
-        </activity>
-        <activity android:name=".ipc.IPCActivity">
-        </activity>
-        <activity android:name=".ipc.socket.SocketActivity">
-        </activity>
+        <activity android:name=".thread.threadpool.ThreadPoolActivity"></activity>
+        <activity android:name=".async.AsyncActivity"></activity>
+        <activity android:name=".async.asynctask.AsyncTaskActivity"></activity>
+        <activity android:name=".async.handler.HandlerActivity"></activity>
+        <activity android:name=".photoframe.PhotoFrameActivity"></activity>
+        <activity android:name=".photoframe.uil.UniversalImageLoaderActivity"></activity>
+        <activity android:name=".menu.MenuActivity"></activity>
+        <activity android:name=".menu.top.TopMenuActivity"></activity>
+        <activity android:name=".cache.CacheActivity"></activity>
+        <activity android:name=".cache.lru.LruCacheActivity"></activity>
+        <activity android:name=".cache.linked.LinkedHashMapActivity"></activity>
+        <activity android:name=".cache.disklrucache.DiskLruCacheActivity"></activity>
+        <activity android:name=".io.IOActivity"></activity>
+        <activity android:name=".net.NetActivity"></activity>
+        <activity android:name=".io.file.FileIOActivity"></activity>
+        <activity android:name=".net.httpurlconnection.HttpUrlConnectionActivity"></activity>
+        <activity android:name=".cache.disklrucache.photowall.PhotoWallActivity"></activity>
+        <activity android:name=".view.ViewActivity"></activity>
+        <activity android:name=".view.custom.CustomViewActivity"></activity>
+        <activity android:name=".view.custom.setting.SettingActivity"></activity>
+        <activity android:name=".view.system.SystemViewActivity"></activity>
+        <activity android:name=".view.system.dialog.DialogActivity"></activity>
+        <activity android:name=".ui.UIActivity"></activity>
+        <activity android:name=".ui.colormatrix.ColorMatrixActivity"></activity>
+        <activity android:name=".imitate.ImitateActivity"></activity>
+        <activity android:name=".imitate.slipupdown.SlipUpDownActivity"></activity>
+        <activity android:name=".photoframe.picasso.PicassoActivity"></activity>
+        <activity android:name=".photoframe.glide.GlideActivity"></activity>
+        <activity android:name=".photoframe.picasso.PicassoUseActivity"></activity>
+        <activity android:name=".photoframe.glide.GlideUseActivity"></activity>
+        <activity android:name=".photoframe.glide.group.GlideImageGroupActivity"></activity>
+        <activity android:name=".ipc.IPCActivity"></activity>
+        <activity android:name=".ipc.socket.SocketActivity"></activity>
 
-        <service android:name=".ipc.socket.SocketServer"/>
+        <service android:name=".ipc.socket.SocketServer" />
         <!-- android:process=":remote" -->
 
-        <activity android:name=".custom.CustomProjectActivity">
-        </activity>
-        <activity android:name=".custom.zero.CustomZeroActivity">
-        </activity>
-        <activity android:name=".mode.ModeActivity">
-        </activity>
-        <activity android:name=".mode.proxy.ProxyActivity">
-        </activity>
-        <activity android:name=".jni.JniActivity">
-        </activity>
-        <activity android:name=".imitate.zhihuad.ZhihuAdActivity">
-        </activity>
-        <activity android:name=".xuliehua.XuliehuaActivity">
-        </activity>
-        <activity android:name=".xuliehua.serializable.SerializableActivity">
-        </activity>
+        <activity android:name=".custom.CustomProjectActivity"></activity>
+        <activity android:name=".custom.zero.CustomZeroActivity"></activity>
+        <activity android:name=".mode.ModeActivity"></activity>
+        <activity android:name=".mode.proxy.ProxyActivity"></activity>
+        <activity android:name=".jni.JniActivity"></activity>
+        <activity android:name=".imitate.zhihuad.ZhihuAdActivity"></activity>
+        <activity android:name=".xuliehua.XuliehuaActivity"></activity>
+        <activity android:name=".xuliehua.serializable.SerializableActivity"></activity>
 
         <service
             android:name=".ipc.aidl.AIDLService"
-            android:process=":remote"/>
+            android:process=":remote" />
 
-        <activity android:name=".ipc.aidl.AidlActivity">
-        </activity>
-        <activity android:name=".ipc.messenger.MessengerActivity">
-        </activity>
+        <activity android:name=".ipc.aidl.AidlActivity"></activity>
+        <activity android:name=".ipc.messenger.MessengerActivity"></activity>
 
         <service
             android:name=".ipc.messenger.MessengerService"
-            android:process=":remote"/>
+            android:process=":remote" />
 
-        <activity android:name=".net.okhttp.Okhttp3Activity">
-        </activity>
-        <activity android:name=".net.okhttp.Okhttp2Activity">
-        </activity>
-        <activity android:name=".net.retrofit.Retrofit2Activity">
-        </activity>
-        <activity android:name=".inject.InjectActivity">
-        </activity>
-        <activity android:name=".inject.annotation.AnnotationActivity">
-        </activity>
-        <activity android:name=".view.custom.test.TestCustomViewActivity">
-        </activity>
-        <activity android:name=".window.WindowActivity">
-        </activity>
-        <activity android:name=".view.custom.slide.SlideConflictActivity">
-        </activity>
-        <activity android:name=".classloader.ClassLoaderActivity">
-        </activity>
-        <activity android:name=".arithmetic.ArithmeticActivity">
-        </activity>
-        <activity android:name=".fragment.FragmentActivity">
-        </activity>
-        <activity android:name=".fragment.lifecycle.LifeCycleActivity">
-        </activity>
-        <activity android:name=".databinding.DataBindingActivity">
-        </activity>
-        <activity android:name=".databinding.demo1.Demo1Activity">
-        </activity>
-        <activity android:name=".view.system.xrecyclerview.XRecyclerViewActivity">
-        </activity>
-        <activity android:name=".view.system.xrecyclerview.XDemo1Activity">
-        </activity>
-        <activity android:name=".view.system.xrecyclerview.XDemo2Activity">
-        </activity>
-        <activity android:name=".mvvm.demo1.MvvmDemo1Activity">
-        </activity>
-        <activity android:name=".mvvm.MvvmActivity">
-        </activity>
-        <activity android:name=".bluetooth.BlueToothActivity">
-        </activity>
-        <activity android:name=".bluetooth.bluedemo1.BlueDemo1Activity">
-        </activity>
+        <activity android:name=".net.okhttp.Okhttp3Activity"></activity>
+        <activity android:name=".net.okhttp.Okhttp2Activity"></activity>
+        <activity android:name=".net.retrofit.Retrofit2Activity"></activity>
+        <activity android:name=".inject.InjectActivity"></activity>
+        <activity android:name=".inject.annotation.AnnotationActivity"></activity>
+        <activity android:name=".view.custom.test.TestCustomViewActivity"></activity>
+        <activity android:name=".window.WindowActivity"></activity>
+        <activity android:name=".view.custom.slide.SlideConflictActivity"></activity>
+        <activity android:name=".classloader.ClassLoaderActivity"></activity>
+        <activity android:name=".arithmetic.ArithmeticActivity"></activity>
+        <activity android:name=".fragment.FragmentActivity"></activity>
+        <activity android:name=".fragment.lifecycle.LifeCycleActivity"></activity>
+        <activity android:name=".databinding.DataBindingActivity"></activity>
+        <activity android:name=".databinding.demo1.Demo1Activity"></activity>
+        <activity android:name=".view.system.xrecyclerview.XRecyclerViewActivity"></activity>
+        <activity android:name=".view.system.xrecyclerview.XDemo1Activity"></activity>
+        <activity android:name=".view.system.xrecyclerview.XDemo2Activity"></activity>
+        <activity android:name=".mvvm.demo1.MvvmDemo1Activity"></activity>
+        <activity android:name=".mvvm.MvvmActivity"></activity>
+        <activity android:name=".bluetooth.BlueToothActivity"></activity>
+        <activity android:name=".bluetooth.bluedemo1.BlueDemo1Activity"></activity>
+        <activity android:name=".fragment.viewpager.ViewpagerFragmentActivity"></activity>
     </application>
 
 </manifest>
