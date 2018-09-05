@@ -28,6 +28,7 @@ import com.example.cgz.bloodsoulnote2.menu.MenuActivity;
 import com.example.cgz.bloodsoulnote2.mode.ModeActivity;
 import com.example.cgz.bloodsoulnote2.mvvm.MvvmActivity;
 import com.example.cgz.bloodsoulnote2.net.NetActivity;
+import com.example.cgz.bloodsoulnote2.otherframe.OtherFrameActivity;
 import com.example.cgz.bloodsoulnote2.photoframe.PhotoFrameActivity;
 import com.example.cgz.bloodsoulnote2.service.ServiceActivity;
 import com.example.cgz.bloodsoulnote2.thread.ThreadActivity;
@@ -84,6 +85,7 @@ public class MainActivity extends BaseActivity {
         mDatas.add("25 - DataBinding");
         mDatas.add("26 - MVVM模式");
         mDatas.add("27 - 蓝牙");
+        mDatas.add("28 - 三方框架");
     }
 
     private void clickRecyclerItem(int position) {
@@ -164,6 +166,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case 27:
                 startActivity(BlueToothActivity.class);
+                break;
+            case 28:
+                startActivity(OtherFrameActivity.class);
                 break;
         }
     }

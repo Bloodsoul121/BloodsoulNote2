@@ -3,6 +3,8 @@ if (project.isModule as boolean) {
 } else {
     apply plugin: 'com.android.library'
 }
+//使用greendao
+apply plugin: 'org.greenrobot.greendao'
 
 android {
 
@@ -68,6 +70,19 @@ android {
         enabled true
     }
 
+//    sourceSets.main {
+//        jniLibs.srcDir 'src/main/libs'
+//        jni.srcDirs = [] //disable automatic ndk-build call
+//    }
+
+    //greendao配置
+    greendao {
+        //版本号，升级时可配置
+        schemaVersion 1
+        daoPackage 'com.example.cgz.bloodsoulnote2.otherframe.greendao'
+        targetGenDir 'src/main/java'
+    }
+
 }
 
 def releaseTime() {
@@ -81,7 +96,6 @@ dependencies {
     })
     compile files('libs/universal-image-loader-1.9.5.jar')
     compile files('libs/amigo.jar')
-    compile project(':jnilib')
     //ConverterFactory的String依赖包
     compile 'com.jcodecraeer:xrecyclerview:1.5.9'
     compile 'com.android.support:appcompat-v7:26.+'
@@ -103,4 +117,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     compile 'com.orhanobut:logger:1.4'
+    compile 'org.greenrobot:greendao:3.2.0' //greendao依赖
 }

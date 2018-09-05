@@ -5,7 +5,6 @@ import android.view.View;
 
 import com.example.cgz.bloodsoulnote2.R;
 import com.example.cgz.bloodsoulnote2.base.BaseActivity;
-import com.example.jnilib.JniLib;
 
 public class JniActivity extends BaseActivity {
 
@@ -16,7 +15,7 @@ public class JniActivity extends BaseActivity {
     }
 
     public void clickBtn1(View view) {
-        JniLib.getStringFromC();
+//        JniLib.getStringFromC();
     }
 
 }
