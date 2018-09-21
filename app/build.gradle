@@ -31,6 +31,7 @@ android {
         versionCode 1
         versionName project.BLOODSOULTEST as String
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        flavorDimensions "1.0"
     }
     buildTypes {
         release {
@@ -62,10 +63,16 @@ android {
     }
 
     android.applicationVariants.all { variant ->
-        def file = variant.outputs[0].outputFile
-        variant.outputs[0].outputFile = new File(file.parent,
-                file.name.replace(".apk", "-" + defaultConfig.versionName + "-" + releaseTime() + ".apk"))
+//        def file = variant.outputs[0].outputFile
+//        variant.outputs[0].outputFile = new File(file.parent,
+//                file.name.replace(".apk", "-" + defaultConfig.versionName + "-" + releaseTime() + ".apk"))
 
+        variant.outputs.all { output ->  // each 改为 all
+            def outFile = output.outputFile
+            if (outFile != null && outFile.name.endsWith('.apk')) {
+                outputFileName = outFile.name.replace(".apk", "-" + defaultConfig.versionName + "-" + releaseTime() + ".apk")
+            }
+        }
     }
 
     dataBinding {
@@ -87,9 +94,9 @@ android {
 
 }
 
-def releaseTime() {
-    return new Date().format("yyyy-MM-dd")
-}
+    static def releaseTime() {
+        return new Date().format("yyyy-MM-dd")
+    }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
