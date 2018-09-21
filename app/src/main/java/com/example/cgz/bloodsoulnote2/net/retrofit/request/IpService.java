@@ -1,6 +1,6 @@
 package com.example.cgz.bloodsoulnote2.net.retrofit.request;
 
-import com.example.cgz.bloodsoulnote2.databinding.demo1.User;
+import com.example.cgz.bloodsoulnote2.otherframe.databinding.demo1.User;
 
 import retrofit2.Call;
 import retrofit2.http.Field;

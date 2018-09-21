@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="E:\asworkspace\BloodsoulNote2\app\libs\amigo.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="132d5c1cadbdc89e907f185da6409a9fdea0d6a9">
+        <dex dex="E:\asworkspace\BloodsoulNote2\app\build\intermediates\pre-dexed\baidu\debug\amigo_083343e47315a6d97272f188cce292f154138378.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\wwlhac\.gradle\caches\modules-2\files-2.1\com.google.dagger\dagger\2.11\95037eaee68aa48021511972e9db9ba29916e1c9\dagger-2.11.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="95037eaee68aa48021511972e9db9ba29916e1c9">
+        <dex dex="E:\asworkspace\BloodsoulNote2\app\build\intermediates\pre-dexed\baidu\debug\dagger-2.11_d000e08eddd652851a2a3415b1de2e2bb8e3fbfa.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\asworkspace\BloodsoulNote2\app\libs\universal-image-loader-1.9.5.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="442dbfb517b9ab5cb5c6da7ebf8cc28ec5bd0375">
+        <dex dex="E:\asworkspace\BloodsoulNote2\app\build\intermediates\pre-dexed\baidu\debug\universal-image-loader-1.9.5_a048804b1d64e42e645137d84ff5bcf14980d42f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\wwlhac\.gradle\caches\modules-2\files-2.1\javax.inject\javax.inject\1\6975da39a7040257bd51d21a231b76c915872d38\javax.inject-1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="E:\asworkspace\BloodsoulNote2\app\build\intermediates\pre-dexed\baidu\debug\javax.inject-1_2f94026fde20903e5b359c68a163086f949d61c3.jar" />
+    </item>
+
+</items>

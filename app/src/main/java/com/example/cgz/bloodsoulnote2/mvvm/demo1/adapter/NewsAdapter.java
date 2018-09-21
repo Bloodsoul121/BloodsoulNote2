@@ -11,10 +11,6 @@ import com.example.cgz.bloodsoulnote2.BR;
 import com.example.cgz.bloodsoulnote2.R;
 import com.example.cgz.bloodsoulnote2.mvvm.demo1.bean.SimpleNewsBean;
 
-/**
- * Created by cgz on 18-4-23.
- */
-
 public class NewsAdapter extends BaseAdapter<SimpleNewsBean, ViewHolder> {
 
     public NewsAdapter(Context context) {

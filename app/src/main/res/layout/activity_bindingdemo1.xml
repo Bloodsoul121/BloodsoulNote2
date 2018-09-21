@@ -4,8 +4,8 @@
 
     <data>
         <variable
-            name="user"
-            type="com.example.cgz.bloodsoulnote2.databinding.demo1.User"/>
+            name="userVM"
+            type="com.example.cgz.bloodsoulnote2.otherframe.databinding.demo1.UserViewModel"/>
     </data>
 
     <LinearLayout
@@ -14,18 +14,18 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:text="@{user.name}"
+            android:text="@{userVM.mUser.name}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <TextView
-            android:text="@{user.age}"
+            android:text="@{userVM.mUser.age}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <Button
             android:text="更改 User"
-            android:onClick="clickBtn1"
+            android:onClick="@{userVM.clickBtn}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

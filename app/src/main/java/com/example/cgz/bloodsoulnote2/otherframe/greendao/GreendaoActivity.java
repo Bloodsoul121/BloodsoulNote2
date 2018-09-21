@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import com.example.cgz.bloodsoulnote2.MainApplication;
+import com.example.cgz.bloodsoulnote2.main.MainApplication;
 import com.example.cgz.bloodsoulnote2.R;
 import com.example.cgz.bloodsoulnote2.base.BaseActivity;
 
