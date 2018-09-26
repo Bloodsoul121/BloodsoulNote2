@@ -140,7 +140,11 @@
         <activity android:name=".otherframe.databinding.demo2.Demo2Activity" />
         <activity android:name=".otherframe.databinding.demo3.Demo3Activity" />
         <activity android:name=".otherframe.dbflow.DbflowActivity" />
-        <activity android:name=".otherframe.dragger2.Dragger2Activity"></activity>
+        <activity android:name=".otherframe.dragger2.Dragger2Activity" />
+        <activity android:name=".video.vitamio.VitamioActivity" />
+        <activity android:name=".video.VideoActivity" />
+        <activity android:name=".video.livevideo.LiveVideoActivity" />
+        <activity android:name=".video.livevideo.PushStreamActivity"/>
     </application>
 
 </manifest>

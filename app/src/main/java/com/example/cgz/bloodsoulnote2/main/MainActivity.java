@@ -33,6 +33,8 @@ import com.example.cgz.bloodsoulnote2.photoframe.PhotoFrameActivity;
 import com.example.cgz.bloodsoulnote2.service.ServiceActivity;
 import com.example.cgz.bloodsoulnote2.thread.ThreadActivity;
 import com.example.cgz.bloodsoulnote2.ui.UIActivity;
+import com.example.cgz.bloodsoulnote2.video.VideoActivity;
+import com.example.cgz.bloodsoulnote2.video.vitamio.VitamioActivity;
 import com.example.cgz.bloodsoulnote2.view.ViewActivity;
 import com.example.cgz.bloodsoulnote2.window.WindowActivity;
 import com.example.cgz.bloodsoulnote2.xuliehua.XuliehuaActivity;
@@ -82,7 +84,7 @@ public class MainActivity extends BaseActivity {
         mDatas.add("22 - 类加载器");
         mDatas.add("23 - 数据结构与算法");
         mDatas.add("24 - Fragment");
-        mDatas.add("25 - ");
+        mDatas.add("25 - 视频");
         mDatas.add("26 - MVVM模式");
         mDatas.add("27 - 蓝牙");
         mDatas.add("28 - 三方框架");
@@ -159,7 +161,7 @@ public class MainActivity extends BaseActivity {
                 startActivity(FragmentActivity.class);
                 break;
             case 25:
-
+                startActivity(VideoActivity.class);
                 break;
             case 26:
                 startActivity(MvvmActivity.class);
