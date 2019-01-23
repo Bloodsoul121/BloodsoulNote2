@@ -5,6 +5,7 @@ if (project.isModule as boolean) {
 }
 //使用greendao
 apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'gradle_plugin'
 
 def dbflow_version = "4.1.2"
 

@@ -8,6 +8,9 @@ buildscript {
 //            name 'Google'
 //        }
         google()
+        maven {
+            url uri('../repo')
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.4'
@@ -16,6 +19,8 @@ buildscript {
         // in the individual module build.gradle files
 
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.1'
+        classpath files('libs/time-1.0.0.jar')
+
     }
 }
 
