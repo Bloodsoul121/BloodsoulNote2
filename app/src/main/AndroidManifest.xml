@@ -144,7 +144,8 @@
         <activity android:name=".video.vitamio.VitamioActivity" />
         <activity android:name=".video.VideoActivity" />
         <activity android:name=".video.livevideo.LiveVideoActivity" />
-        <activity android:name=".video.livevideo.PushStreamActivity"/>
+        <activity android:name=".video.livevideo.PushStreamActivity" />
+        <activity android:name=".ui.statusbar.StatusbarActivity"></activity>
     </application>
 
 </manifest>
