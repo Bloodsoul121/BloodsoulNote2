@@ -8,6 +8,14 @@
     <!-- 蓝牙 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <!-- wifi直连 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <meta-data
         android:name="UMENG_CHANNEL"
@@ -145,7 +153,10 @@
         <activity android:name=".video.VideoActivity" />
         <activity android:name=".video.livevideo.LiveVideoActivity" />
         <activity android:name=".video.livevideo.PushStreamActivity" />
-        <activity android:name=".ui.statusbar.StatusbarActivity"></activity>
+        <activity android:name=".ui.statusbar.StatusbarActivity" />
+        <activity android:name=".wifi.WifiP2PActivity" />
+        <activity android:name=".wifi.WifiSendFileActivity" />
+        <activity android:name=".wifi.WifiReceiveFileActivity"></activity>
     </application>
 
 </manifest>

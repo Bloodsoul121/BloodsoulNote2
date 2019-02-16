@@ -36,6 +36,7 @@ import com.example.cgz.bloodsoulnote2.ui.UIActivity;
 import com.example.cgz.bloodsoulnote2.video.VideoActivity;
 import com.example.cgz.bloodsoulnote2.video.vitamio.VitamioActivity;
 import com.example.cgz.bloodsoulnote2.view.ViewActivity;
+import com.example.cgz.bloodsoulnote2.wifi.WifiP2PActivity;
 import com.example.cgz.bloodsoulnote2.window.WindowActivity;
 import com.example.cgz.bloodsoulnote2.xuliehua.XuliehuaActivity;
 
@@ -88,6 +89,7 @@ public class MainActivity extends BaseActivity {
         mDatas.add("26 - MVVM模式");
         mDatas.add("27 - 蓝牙");
         mDatas.add("28 - 三方框架");
+        mDatas.add("29 - wifi直连");
     }
 
     private void clickRecyclerItem(int position) {
@@ -171,6 +173,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case 28:
                 startActivity(OtherFrameActivity.class);
+                break;
+            case 29:
+                startActivity(WifiP2PActivity.class);
                 break;
         }
     }

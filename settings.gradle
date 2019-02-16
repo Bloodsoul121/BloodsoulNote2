@@ -1,1 +1,1 @@
-include ':app', ':jnilib', ':vitamio'
+include ':app', ':vitamio'
