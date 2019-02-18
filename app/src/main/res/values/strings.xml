@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Note2018</string>
+    <string name="app_name">Note</string>
     <string name="title_activity_life_cycle">LifeCycleActivity</string>
 
     <string name="setting_dialog_listview_bottom_cannel">取消</string>
