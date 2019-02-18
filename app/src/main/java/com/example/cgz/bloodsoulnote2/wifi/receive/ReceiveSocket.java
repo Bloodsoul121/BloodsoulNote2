@@ -1,9 +1,13 @@
-package com.example.cgz.bloodsoulnote2.wifi;
+package com.example.cgz.bloodsoulnote2.wifi.receive;
 
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
+
+import com.example.cgz.bloodsoulnote2.wifi.FileBean;
+import com.example.cgz.bloodsoulnote2.wifi.FileUtils;
+import com.example.cgz.bloodsoulnote2.wifi.Md5Util;
 
 import java.io.File;
 import java.io.FileOutputStream;

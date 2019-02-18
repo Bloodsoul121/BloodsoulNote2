@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.cgz.bloodsoulnote2.R;
+import com.example.cgz.bloodsoulnote2.wifi.send.SendTask;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -146,7 +147,8 @@ public class WifiSendFileActivity extends Wifip2pBaseActivity {
                         FileBean fileBean = new FileBean(file.getPath(), file.length(), md5);
                         String hostAddress = mWifiP2pInfo.groupOwnerAddress.getHostAddress();
 
-                        // TODO: 2019/2/16  
+                        // TODO: 2019/2/16
+                        new SendTask(WifiSendFileActivity.this, fileBean).execute(hostAddress);
                     }
                 }
             }

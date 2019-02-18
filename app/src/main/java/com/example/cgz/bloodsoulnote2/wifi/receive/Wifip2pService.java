@@ -1,4 +1,4 @@
-package com.example.cgz.bloodsoulnote2.wifi;
+package com.example.cgz.bloodsoulnote2.wifi.receive;
 
 
 import android.app.IntentService;

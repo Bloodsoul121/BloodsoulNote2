@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.cgz.bloodsoulnote2.R;
+import com.example.cgz.bloodsoulnote2.wifi.receive.ReceiveSocket;
+import com.example.cgz.bloodsoulnote2.wifi.receive.Wifip2pService;
 
 import java.io.File;
 

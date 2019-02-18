@@ -120,7 +120,7 @@
         <service
             android:name=".ipc.messenger.MessengerService"
             android:process=":remote" />
-        <service android:name=".wifi.Wifip2pService" />
+        <service android:name=".wifi.receive.Wifip2pService" />
 
         <activity android:name=".net.okhttp.Okhttp3Activity" />
         <activity android:name=".net.okhttp.Okhttp2Activity" />
