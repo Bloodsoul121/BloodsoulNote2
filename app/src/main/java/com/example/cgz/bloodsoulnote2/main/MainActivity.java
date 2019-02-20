@@ -21,6 +21,7 @@ import com.example.cgz.bloodsoulnote2.custom.CustomProjectActivity;
 import com.example.cgz.bloodsoulnote2.fragment.FragmentActivity;
 import com.example.cgz.bloodsoulnote2.imitate.ImitateActivity;
 import com.example.cgz.bloodsoulnote2.inject.InjectActivity;
+import com.example.cgz.bloodsoulnote2.install.AppInstallActivity;
 import com.example.cgz.bloodsoulnote2.io.IOActivity;
 import com.example.cgz.bloodsoulnote2.ipc.IPCActivity;
 import com.example.cgz.bloodsoulnote2.jni.JniActivity;
@@ -90,6 +91,7 @@ public class MainActivity extends BaseActivity {
         mDatas.add("27 - 蓝牙");
         mDatas.add("28 - 三方框架");
         mDatas.add("29 - wifi直连");
+        mDatas.add("30 - 静默安装");
     }
 
     private void clickRecyclerItem(int position) {
@@ -176,6 +178,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case 29:
                 startActivity(WifiP2PActivity.class);
+                break;
+            case 30:
+                startActivity(AppInstallActivity.class);
                 break;
         }
     }
