@@ -1,0 +1,13 @@
+ext {
+
+    def gradle_compile_version = "28.0.0"
+
+    android = [
+
+    ]
+
+    dependencies = [
+             support_v4 : "com.android.support:support-v4:${gradle_compile_version}"
+    ]
+
+}
