@@ -19,6 +19,17 @@ public class Good extends BaseModel implements Serializable {
     @PrimaryKey(autoincrement = true)//ID自增
     public long id;
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    @Column
+    public String content;//增加的字段
+
     public String getgName() {
         return gName;
     }
@@ -58,6 +69,7 @@ public class Good extends BaseModel implements Serializable {
                 ", gDes='" + gDes + '\'' +
                 ", num=" + num +
                 ", id=" + id +
+                ", content='" + content + '\'' +
                 '}';
     }
 }
