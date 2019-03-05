@@ -6,6 +6,7 @@ import android.widget.AdapterView;
 
 import com.example.cgz.bloodsoulnote2.R;
 import com.example.cgz.bloodsoulnote2.base.ListViewBaseActivity;
+import com.example.cgz.bloodsoulnote2.otherframe.arouter.ARouterActivity;
 import com.example.cgz.bloodsoulnote2.otherframe.databinding.DataBindingActivity;
 import com.example.cgz.bloodsoulnote2.otherframe.dbflow.DbflowActivity;
 import com.example.cgz.bloodsoulnote2.otherframe.dragger2.Dragger2Activity;
@@ -25,6 +26,7 @@ public class OtherFrameActivity extends ListViewBaseActivity {
         mDatas.add("dbflow");
         mDatas.add("databinding");
         mDatas.add("dragger2");
+        mDatas.add("arouter");
     }
 
     @Override
@@ -41,6 +43,9 @@ public class OtherFrameActivity extends ListViewBaseActivity {
                 break;
             case 3:
                 startActivity(Dragger2Activity.class);
+                break;
+            case 4:
+                startActivity(ARouterActivity.class);
                 break;
         }
     }
