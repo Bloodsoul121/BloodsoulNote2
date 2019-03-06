@@ -8,6 +8,8 @@
     <!-- 蓝牙 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <!-- wifi直连 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
@@ -22,6 +24,9 @@
     <meta-data
         android:name="UMENG_CHANNEL"
         android:value="${UMENG_CHANNEL_VALUE}" />
+
+    <uses-feature android:name="android.hardware.bluetooth_le"
+        android:required="false"/>
 
     <application
         android:name=".main.MainApplication"
@@ -163,7 +168,8 @@
         <activity android:name=".wifi.WifiReceiveFileActivity" />
         <activity android:name=".install.AppInstallActivity" />
         <activity android:name=".otherframe.arouter.ARouterActivity" />
-        <activity android:name=".otherframe.arouter.SkipOtherActivity"></activity>
+        <activity android:name=".otherframe.arouter.SkipOtherActivity" />
+        <activity android:name=".bluetooth.ble.BLEActivity"></activity>
     </application>
 
 </manifest>

@@ -27,7 +27,7 @@ android {
     buildToolsVersion "28.0.3"
     defaultConfig {
         applicationId "com.example.cgz.bloodsoulnote2"
-        minSdkVersion 17
+        minSdkVersion 21
         targetSdkVersion 28 // 26
         versionCode 1
         versionName project.BLOODSOULTEST as String
