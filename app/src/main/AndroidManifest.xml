@@ -25,8 +25,9 @@
         android:name="UMENG_CHANNEL"
         android:value="${UMENG_CHANNEL_VALUE}" />
 
-    <uses-feature android:name="android.hardware.bluetooth_le"
-        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="false" />
 
     <application
         android:name=".main.MainApplication"
@@ -169,7 +170,8 @@
         <activity android:name=".install.AppInstallActivity" />
         <activity android:name=".otherframe.arouter.ARouterActivity" />
         <activity android:name=".otherframe.arouter.SkipOtherActivity" />
-        <activity android:name=".bluetooth.ble.BLEActivity"></activity>
+        <activity android:name=".bluetooth.ble.BLEActivity" />
+        <activity android:name=".rx.RxActivity"></activity>
     </application>
 
 </manifest>
