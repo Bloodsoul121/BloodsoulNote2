@@ -171,7 +171,9 @@
         <activity android:name=".otherframe.arouter.ARouterActivity" />
         <activity android:name=".otherframe.arouter.SkipOtherActivity" />
         <activity android:name=".bluetooth.ble.BLEActivity" />
-        <activity android:name=".rx.RxActivity"></activity>
+        <activity android:name=".rx.RxActivity" />
+        <activity android:name=".media.MediaActivity" />
+        <activity android:name=".media.draw.DrawPictureActivity"></activity>
     </application>
 
 </manifest>

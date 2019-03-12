@@ -25,6 +25,7 @@ import com.example.cgz.bloodsoulnote2.install.AppInstallActivity;
 import com.example.cgz.bloodsoulnote2.io.IOActivity;
 import com.example.cgz.bloodsoulnote2.ipc.IPCActivity;
 import com.example.cgz.bloodsoulnote2.jni.JniActivity;
+import com.example.cgz.bloodsoulnote2.media.MediaActivity;
 import com.example.cgz.bloodsoulnote2.menu.MenuActivity;
 import com.example.cgz.bloodsoulnote2.mode.ModeActivity;
 import com.example.cgz.bloodsoulnote2.mvvm.MvvmActivity;
@@ -94,6 +95,7 @@ public class MainActivity extends BaseActivity {
         mDatas.add("29 - wifi直连");
         mDatas.add("30 - 静默安装");
         mDatas.add("31 - RX");
+        mDatas.add("32 - 音视频");
     }
 
     private void clickRecyclerItem(int position) {
@@ -186,6 +188,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case 31:
                 startActivity(RxActivity.class);
+                break;
+            case 32:
+                startActivity(MediaActivity.class);
                 break;
         }
     }
