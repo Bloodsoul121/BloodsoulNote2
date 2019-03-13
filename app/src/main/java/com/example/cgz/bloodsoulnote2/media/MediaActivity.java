@@ -7,6 +7,8 @@ import android.view.View;
 
 import com.example.cgz.bloodsoulnote2.R;
 import com.example.cgz.bloodsoulnote2.media.audiorecord.AudioRecordActivity;
+import com.example.cgz.bloodsoulnote2.media.camera.Camera2Activity;
+import com.example.cgz.bloodsoulnote2.media.camera.CameraActivity;
 import com.example.cgz.bloodsoulnote2.media.draw.DrawPictureActivity;
 
 public class MediaActivity extends AppCompatActivity {
@@ -23,6 +25,14 @@ public class MediaActivity extends AppCompatActivity {
 
     public void record(View view) {
         startActivity(new Intent(this, AudioRecordActivity.class));
+    }
+
+    public void useCamera(View view) {
+        startActivity(new Intent(this, CameraActivity.class));
+    }
+
+    public void useCamera2(View view) {
+        startActivity(new Intent(this, Camera2Activity.class));
     }
 
     /*

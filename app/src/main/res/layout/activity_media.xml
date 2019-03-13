@@ -19,4 +19,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <Button
+        android:onClick="useCamera"
+        android:text="使用Camera，采集NV21数据"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:onClick="useCamera2"
+        android:text="5.0之后更新的Camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>
