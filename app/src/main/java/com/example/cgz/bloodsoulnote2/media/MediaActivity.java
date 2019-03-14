@@ -7,7 +7,7 @@ import android.view.View;
 
 import com.example.cgz.bloodsoulnote2.R;
 import com.example.cgz.bloodsoulnote2.media.audiorecord.AudioRecordActivity;
-import com.example.cgz.bloodsoulnote2.media.camera.Camera2Activity;
+import com.example.cgz.bloodsoulnote2.media.camera2.Camera2Activity;
 import com.example.cgz.bloodsoulnote2.media.camera.CameraActivity;
 import com.example.cgz.bloodsoulnote2.media.draw.DrawPictureActivity;
 

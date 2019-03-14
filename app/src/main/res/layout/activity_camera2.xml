@@ -5,13 +5,35 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.cgz.bloodsoulnote2.media.camera.Camera2Activity">
+    tools:context="com.example.cgz.bloodsoulnote2.media.camera2.Camera2Activity">
 
-    <Button
-        android:onClick="openCamera"
-        android:text="打开相机"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
+
+        <Button
+            android:onClick="openCamera"
+            android:text="预览"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:onClick="switchCamera"
+            android:text="切换摄像头"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:onClick="capture"
+            android:text="拍照"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
     <SurfaceView
         android:id="@+id/surface_view"

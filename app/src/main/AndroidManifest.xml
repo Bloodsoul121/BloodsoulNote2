@@ -175,7 +175,7 @@
         <activity android:name=".otherframe.arouter.SkipOtherActivity" />
         <activity android:name=".bluetooth.ble.BLEActivity" />
         <activity android:name=".rx.RxActivity" />
-        <activity android:name=".media.MediaActivity" />
+        <activity android:name=".media.MediaActivity" android:screenOrientation="portrait" />
         <activity android:name=".media.draw.DrawPictureActivity" />
         <activity
             android:name=".media.audiorecord.AudioRecordActivity"
@@ -183,7 +183,7 @@
         <activity
             android:name=".media.camera.CameraActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".media.camera.Camera2Activity"></activity>
+        <activity android:name=".media.camera2.Camera2Activity" android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
