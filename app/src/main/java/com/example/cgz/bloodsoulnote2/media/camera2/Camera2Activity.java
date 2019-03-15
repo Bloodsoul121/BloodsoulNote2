@@ -1,11 +1,10 @@
 package com.example.cgz.bloodsoulnote2.media.camera2;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.res.Configuration;
+import android.content.pm.PackageManager;
 import android.graphics.ImageFormat;
-import android.graphics.Point;
-import android.graphics.SurfaceTexture;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCaptureSession;
 import android.hardware.camera2.CameraCharacteristics;
@@ -21,6 +20,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.Size;
@@ -52,6 +52,7 @@ public class Camera2Activity extends AppCompatActivity {
      * Conversion from screen rotation to JPEG orientation.
      */
     private static final SparseIntArray ORIENTATIONS = new SparseIntArray();
+
     static {
         ORIENTATIONS.append(Surface.ROTATION_0, 90);
         ORIENTATIONS.append(Surface.ROTATION_90, 0);
@@ -126,26 +127,29 @@ public class Camera2Activity extends AppCompatActivity {
         mFrontCameraInfo = new CameraInfo(CameraInfo.DIRECTION_FRONT);
         mBackCameraInfo = new CameraInfo(CameraInfo.DIRECTION_BACK);
         //创建文件
-        mFile = new File(getExternalFilesDir(null), "pic.jpg");
+        mFile = new File(getExternalFilesDir(null), "pic-self.jpg");
+        mHolder.addCallback(mSurfaceHolderCallback);
+        mHolder.setKeepScreenOn(true);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        startBackgroundThread();
-        init();
-    }
-
-    @Override
-    protected void onPause() {
-        closeCamera();
-        stopBackgroundThread();
-        super.onPause();
-        if (mCameraDevice != null) {
-            mCameraDevice.close();
-            mCameraDevice = null;
+    private SurfaceHolder.Callback mSurfaceHolderCallback = new SurfaceHolder.Callback() {
+        @Override
+        public void surfaceCreated(SurfaceHolder holder) {
+            Log.i(TAG, "surfaceCreated");
+            openCamera();
         }
-    }
+
+        @Override
+        public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+
+        }
+
+        @Override
+        public void surfaceDestroyed(SurfaceHolder holder) {
+            closeCamera();
+            stopBackgroundThread();
+        }
+    };
 
     private void closeCamera() {
         try {
@@ -186,7 +190,7 @@ public class Camera2Activity extends AppCompatActivity {
         mHandler = new Handler(mBackgroundThread.getLooper());
     }
 
-    private void init() {
+    private void initConfig() {
         mCameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
         try {
             // 获取可用摄像头
@@ -285,16 +289,28 @@ public class Camera2Activity extends AppCompatActivity {
     /**
      *  打开摄像头
      */
-    public void openCamera(View view) {
+    public void openCamera() {
+        startBackgroundThread();
+        initConfig();
         preview();
     }
 
-    @SuppressLint("MissingPermission")
     private void preview() {
         try {
             if (!mCameraOpenCloseLock.tryAcquire(2500, TimeUnit.MILLISECONDS)) {
                 throw new RuntimeException("Time out waiting to lock camera opening.");
             }
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return;
+            }
+            Log.i(TAG, "preview mCameraId : " + mCameraInfo.mCameraId + " , thread : " + Thread.currentThread().getName());
             mCameraManager.openCamera(mCameraInfo.mCameraId, mCameraDeviceStateCallback, mHandler);
         } catch (Exception e) {
             e.printStackTrace();
@@ -304,8 +320,8 @@ public class Camera2Activity extends AppCompatActivity {
     private CameraDevice.StateCallback mCameraDeviceStateCallback = new CameraDevice.StateCallback() {
         @Override
         public void onOpened(@NonNull CameraDevice camera) {
-            mCameraOpenCloseLock.release();
             Log.i(TAG, "CameraDevice 开始连接");
+            mCameraOpenCloseLock.release();
             mCameraDevice = camera;
             try {
                 //创建一个CameraCaptureSession来进行相机预览。
@@ -317,16 +333,16 @@ public class Camera2Activity extends AppCompatActivity {
 
         @Override
         public void onDisconnected(@NonNull CameraDevice camera) {
-            mCameraOpenCloseLock.release();
             Log.i(TAG, "CameraDevice 断开连接");
+            mCameraOpenCloseLock.release();
             camera.close();
             mCameraDevice = null;
         }
 
         @Override
         public void onError(@NonNull CameraDevice camera, int error) {
-            mCameraOpenCloseLock.release();
             Log.e(TAG, "CameraDevice 出现错误 " + error);
+            mCameraOpenCloseLock.release();
             camera.close();
             mCameraDevice = null;
             finish();
@@ -387,7 +403,6 @@ public class Camera2Activity extends AppCompatActivity {
             switch (mState) {
                 case STATE_PREVIEW: {
                     //预览状态
-                    Log.i(TAG, "CameraCaptureSession.CaptureCallback process STATE_PREVIEW");
                     break;
                 }
                 case STATE_WAITING_LOCK: {
@@ -395,18 +410,15 @@ public class Camera2Activity extends AppCompatActivity {
                     //等待对焦
                     Integer afState = result.get(CaptureResult.CONTROL_AF_STATE);
                     if (afState == null) {
-                        Log.i(TAG, "CameraCaptureSession.CaptureCallback process STATE_WAITING_LOCK afState == null");
                         captureStillPicture();
                     } else if (CaptureResult.CONTROL_AF_STATE_FOCUSED_LOCKED == afState ||
                             CaptureResult.CONTROL_AF_STATE_NOT_FOCUSED_LOCKED == afState) {
                         // CONTROL_AE_STATE can be null on some devices
                         Integer aeState = result.get(CaptureResult.CONTROL_AE_STATE);
                         if (aeState == null || aeState == CaptureResult.CONTROL_AE_STATE_CONVERGED) {
-                            Log.i(TAG, "CameraCaptureSession.CaptureCallback process STATE_WAITING_LOCK captureStillPicture");
                             mState = STATE_PICTURE_TAKEN;
                             captureStillPicture();
                         } else {
-                            Log.i(TAG, "CameraCaptureSession.CaptureCallback process STATE_WAITING_LOCK runPrecaptureSequence");
                             runPrecaptureSequence();
                         }
                     }
@@ -522,7 +534,7 @@ public class Camera2Activity extends AppCompatActivity {
             int rotation = this.getWindowManager().getDefaultDisplay().getRotation();
             int realOrientation = getOrientation(rotation);
             Log.i(TAG, "realOrientation " + realOrientation + " / rotation " + rotation);
-            captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, 90);
+            captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, realOrientation);
 
             CameraCaptureSession.CaptureCallback CaptureCallback = new CameraCaptureSession.CaptureCallback() {
                 @Override
@@ -535,6 +547,7 @@ public class Camera2Activity extends AppCompatActivity {
             };
             //停止连续取景
             mCameraCaptureSession.stopRepeating();
+            mCameraCaptureSession.abortCaptures();
             //捕获图片
             mCameraCaptureSession.capture(captureBuilder.build(), CaptureCallback, null);
         } catch (CameraAccessException e) {
@@ -577,4 +590,7 @@ public class Camera2Activity extends AppCompatActivity {
         return (ORIENTATIONS.get(rotation) + mSensorOrientation + 270) % 360;
     }
 
+    public void open(View view) {
+        openCamera();
+    }
 }

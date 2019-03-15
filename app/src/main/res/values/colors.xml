@@ -6,4 +6,6 @@
 
     <color name="tv_bg_pressed">#696969</color>
     <color name="tv_bg_normal">#ffffff</color>
+
+    <color name="control_background">#cc4285f4</color>
 </resources>

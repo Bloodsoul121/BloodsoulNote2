@@ -31,4 +31,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <Button
+        android:onClick="useCamera2ByAuthority"
+        android:text="5.0之后更新的Camera （官方）"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>
