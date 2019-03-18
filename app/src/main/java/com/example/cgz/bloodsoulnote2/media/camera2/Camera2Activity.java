@@ -11,6 +11,7 @@ import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraDevice;
 import android.hardware.camera2.CameraManager;
 import android.hardware.camera2.CameraMetadata;
+import android.hardware.camera2.CaptureFailure;
 import android.hardware.camera2.CaptureRequest;
 import android.hardware.camera2.CaptureResult;
 import android.hardware.camera2.TotalCaptureResult;
@@ -43,6 +44,8 @@ import butterknife.ButterKnife;
 
 /**
  *  参考官方demo https://github.com/googlesamples/android-Camera2Video
+ *
+ *  目前，在S9机型上，默认open，显示黑屏，测试其他demo后，也是显示黑屏，不清楚原因
  */
 public class Camera2Activity extends AppCompatActivity {
 
@@ -123,11 +126,11 @@ public class Camera2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera2);
         ButterKnife.bind(this);
-        mHolder = mSurfaceView.getHolder();
         mFrontCameraInfo = new CameraInfo(CameraInfo.DIRECTION_FRONT);
         mBackCameraInfo = new CameraInfo(CameraInfo.DIRECTION_BACK);
         //创建文件
         mFile = new File(getExternalFilesDir(null), "pic-self.jpg");
+        mHolder = mSurfaceView.getHolder();
         mHolder.addCallback(mSurfaceHolderCallback);
         mHolder.setKeepScreenOn(true);
     }
@@ -201,6 +204,7 @@ public class Camera2Activity extends AppCompatActivity {
 
                 StreamConfigurationMap streamConfigurationMap = cameraCharacteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
                 if (streamConfigurationMap == null) {
+                    Log.e(TAG, "StreamConfigurationMap is null");
                     continue;
                 }
                 // 对于静态图像拍摄，使用最大的可用尺寸。
@@ -257,7 +261,7 @@ public class Camera2Activity extends AppCompatActivity {
 
         initCameraId();
 
-        Log.i(TAG, mFrontCameraInfo + " / " + mBackCameraInfo);
+        Log.i(TAG, mFrontCameraInfo + "\r\n" + mBackCameraInfo);
     }
 
     private void initCameraId() {
@@ -324,6 +328,7 @@ public class Camera2Activity extends AppCompatActivity {
             mCameraOpenCloseLock.release();
             mCameraDevice = camera;
             try {
+                createPreviewRequest();
                 //创建一个CameraCaptureSession来进行相机预览。
                 camera.createCaptureSession(Arrays.asList(mHolder.getSurface(), mImageReader.getSurface()), mCameraCaptureSessionStateCallback, mHandler);
             } catch (CameraAccessException e) {
@@ -352,6 +357,7 @@ public class Camera2Activity extends AppCompatActivity {
     private CameraCaptureSession.StateCallback mCameraCaptureSessionStateCallback = new CameraCaptureSession.StateCallback() {
         @Override
         public void onConfigured(@NonNull CameraCaptureSession session) {
+            Log.i(TAG, "会话配置成功");
             if (mCameraDevice == null) {
                 return;
             }
@@ -360,7 +366,6 @@ public class Camera2Activity extends AppCompatActivity {
             // 发送请求
             try {
                 mState = STATE_PREVIEW;
-                createPreviewRequest();
                 mCameraCaptureSession.setRepeatingRequest(mPreviewRequest, mCaptureCallback, mHandler);
             } catch (CameraAccessException e) {
                 e.printStackTrace();
@@ -375,6 +380,7 @@ public class Camera2Activity extends AppCompatActivity {
     };
 
     private void createPreviewRequest() throws CameraAccessException {
+        Log.i(TAG, "createPreviewRequest " + Thread.currentThread().getName());
         //设置了一个具有输出Surface的CaptureRequest.Builder。
         mPreviewRequestBuilder = mCameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW);
         mPreviewRequestBuilder.addTarget(mHolder.getSurface());
@@ -382,6 +388,12 @@ public class Camera2Activity extends AppCompatActivity {
         mPreviewRequestBuilder.set(CaptureRequest.CONTROL_AF_MODE, CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE);
         // 闪光灯
         setAutoFlash(mPreviewRequestBuilder);
+        //设置拍摄图像时相机设备是否使用光学防抖（OIS）。
+        mPreviewRequestBuilder.set(CaptureRequest.LENS_OPTICAL_STABILIZATION_MODE, CaptureRequest.LENS_OPTICAL_STABILIZATION_MODE_ON);
+        //感光灵敏度
+        mPreviewRequestBuilder.set(CaptureRequest.SENSOR_SENSITIVITY, 1600);
+        //曝光补偿//
+        mPreviewRequestBuilder.set(CaptureRequest.CONTROL_AE_EXPOSURE_COMPENSATION, 0);
         // 开启相机预览并添加事件
         mPreviewRequest = mPreviewRequestBuilder.build();
     }
@@ -391,12 +403,20 @@ public class Camera2Activity extends AppCompatActivity {
         public void onCaptureProgressed(@NonNull CameraCaptureSession session, @NonNull CaptureRequest request, @NonNull CaptureResult partialResult) {
             super.onCaptureProgressed(session, request, partialResult);
             process(partialResult);
+            Log.i(TAG, "onCaptureProgressed");
         }
 
         @Override
         public void onCaptureCompleted(@NonNull CameraCaptureSession session, @NonNull CaptureRequest request, @NonNull TotalCaptureResult result) {
             super.onCaptureCompleted(session, request, result);
             process(result);
+            Log.i(TAG, "onCaptureCompleted");
+        }
+
+        @Override
+        public void onCaptureFailed(@NonNull CameraCaptureSession session, @NonNull CaptureRequest request, @NonNull CaptureFailure failure) {
+            super.onCaptureFailed(session, request, failure);
+            Log.i(TAG, "onCaptureFailed " + String.valueOf(failure.getReason()));
         }
 
         private void process(@NonNull CaptureResult result) {
