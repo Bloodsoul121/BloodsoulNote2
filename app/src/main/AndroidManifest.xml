@@ -188,7 +188,8 @@
         <activity
             android:name=".media.camera2.Camera2Activity"
             android:screenOrientation="portrait" />
-        <activity android:name=".media.cameraAuthority.Camera2AuthorityActivity"></activity>
+        <activity android:name=".media.cameraAuthority.Camera2AuthorityActivity" />
+        <activity android:name=".media.camera2.Camera2TextureviewActivity"></activity>
     </application>
 
 </manifest>

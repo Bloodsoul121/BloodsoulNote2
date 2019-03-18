@@ -9,6 +9,7 @@ import com.example.cgz.bloodsoulnote2.R;
 import com.example.cgz.bloodsoulnote2.media.audiorecord.AudioRecordActivity;
 import com.example.cgz.bloodsoulnote2.media.camera2.Camera2Activity;
 import com.example.cgz.bloodsoulnote2.media.camera.CameraActivity;
+import com.example.cgz.bloodsoulnote2.media.camera2.Camera2TextureviewActivity;
 import com.example.cgz.bloodsoulnote2.media.cameraAuthority.Camera2AuthorityActivity;
 import com.example.cgz.bloodsoulnote2.media.draw.DrawPictureActivity;
 
@@ -38,6 +39,10 @@ public class MediaActivity extends AppCompatActivity {
 
     public void useCamera2ByAuthority(View view) {
         startActivity(new Intent(this, Camera2AuthorityActivity.class));
+    }
+
+    public void useCamera2ByTextureView(View view) {
+        startActivity(new Intent(this, Camera2TextureviewActivity.class));
     }
 
     /*
