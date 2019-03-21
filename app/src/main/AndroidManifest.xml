@@ -199,7 +199,8 @@
         <activity android:name=".media.cameraAuthority.Camera2AuthorityActivity" />
         <activity android:name=".media.camera2.Camera2TextureviewActivity" />
         <activity android:name=".media.media.MediaHandleActivity" />
-        <activity android:name=".media.opengl.OpenGLActivity"></activity>
+        <activity android:name=".media.opengl.OpenGLActivity" />
+        <activity android:name=".media.opengl.img.OpenGLImageActivity"></activity>
     </application>
 
 </manifest>
