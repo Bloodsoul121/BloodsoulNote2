@@ -200,7 +200,8 @@
         <activity android:name=".media.camera2.Camera2TextureviewActivity" />
         <activity android:name=".media.media.MediaHandleActivity" />
         <activity android:name=".media.opengl.OpenGLActivity" />
-        <activity android:name=".media.opengl.img.OpenGLImageActivity"></activity>
+        <activity android:name=".media.opengl.img.OpenGLImageActivity" />
+        <activity android:name=".media.mediacodec.MediaCodecActivity"></activity>
     </application>
 
 </manifest>

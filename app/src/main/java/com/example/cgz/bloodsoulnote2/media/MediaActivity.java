@@ -13,6 +13,7 @@ import com.example.cgz.bloodsoulnote2.media.camera2.Camera2TextureviewActivity;
 import com.example.cgz.bloodsoulnote2.media.cameraAuthority.Camera2AuthorityActivity;
 import com.example.cgz.bloodsoulnote2.media.draw.DrawPictureActivity;
 import com.example.cgz.bloodsoulnote2.media.media.MediaHandleActivity;
+import com.example.cgz.bloodsoulnote2.media.mediacodec.MediaCodecActivity;
 import com.example.cgz.bloodsoulnote2.media.opengl.OpenGLActivity;
 import com.example.cgz.bloodsoulnote2.media.opengl.img.OpenGLImageActivity;
 
@@ -58,6 +59,10 @@ public class MediaActivity extends AppCompatActivity {
 
     public void opengl_es_img(View view) {
         startActivity(new Intent(this, OpenGLImageActivity.class));
+    }
+
+    public void mediacodec(View view) {
+        startActivity(new Intent(this, MediaCodecActivity.class));
     }
 
     /*
