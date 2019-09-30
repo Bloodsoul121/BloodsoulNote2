@@ -1,5 +1,6 @@
 package com.example.cgz.bloodsoulnote2.rx;
 
+import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -33,6 +34,7 @@ public class RxActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rx);
     }
 
+    @SuppressLint("CheckResult")
     public void clickBtn1(View view) {
         Observable.just("aaa").flatMap(new Function<String, ObservableSource<Integer>>() {
             @Override
@@ -165,8 +167,22 @@ public class RxActivity extends AppCompatActivity {
             }
         });
 
-        Observable.just("");
 
+        Observable.just("hello")
+                .subscribeOn(Schedulers.io())
+                .map(new Function<String, String>() {
+                    @Override
+                    public String apply(String s) {
+                        return "这里做子线程操作";
+                    }
+                })
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String s) {
+                        s = "这里做主线程操作";
+                    }
+                });
 
     }
 }
