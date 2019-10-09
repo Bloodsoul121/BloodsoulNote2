@@ -1,5 +1,7 @@
 package com.example.cgz.bloodsoulnote2.media.audiorecord;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.media.AudioFormat;
 import android.media.AudioManager;
 import android.media.AudioRecord;
@@ -10,8 +12,10 @@ import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.cgz.bloodsoulnote2.R;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -24,6 +28,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+
+import io.reactivex.functions.Consumer;
 
 public class AudioRecordActivity extends AppCompatActivity {
 
@@ -48,7 +54,27 @@ public class AudioRecordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_audio_record);
-        init();
+        requestPermissions(); // 需要录制权限
+    }
+
+    @SuppressLint("CheckResult")
+    public void requestPermissions() {
+        RxPermissions rxPermissions = new RxPermissions(this);
+        rxPermissions.request(Manifest.permission.RECORD_AUDIO,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+        ).subscribe(new Consumer<Boolean>() {
+            @Override
+            public void accept(Boolean aBoolean) {
+                if (aBoolean) {
+                    Toast.makeText(AudioRecordActivity.this, "accept", Toast.LENGTH_SHORT).show();
+                    init();
+                } else {
+                    Toast.makeText(AudioRecordActivity.this, "deny", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            }
+        });
     }
 
     private void init() {
@@ -66,7 +92,8 @@ public class AudioRecordActivity extends AppCompatActivity {
 
         mFileDir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/AudioRecord");
         if (!mFileDir.exists()) {
-            mFileDir.mkdirs();
+            boolean mkdirs = mFileDir.mkdirs();
+            Log.i(TAG, "mkdirs " + mkdirs);
         }
     }
 
