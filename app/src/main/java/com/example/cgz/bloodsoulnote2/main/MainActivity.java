@@ -22,6 +22,7 @@ import com.example.cgz.bloodsoulnote2.fragment.FragmentActivity;
 import com.example.cgz.bloodsoulnote2.imitate.ImitateActivity;
 import com.example.cgz.bloodsoulnote2.inject.InjectActivity;
 import com.example.cgz.bloodsoulnote2.install.AppInstallActivity;
+import com.example.cgz.bloodsoulnote2.intent.IntentActivity;
 import com.example.cgz.bloodsoulnote2.io.IOActivity;
 import com.example.cgz.bloodsoulnote2.ipc.IPCActivity;
 import com.example.cgz.bloodsoulnote2.jni.JniActivity;
@@ -37,7 +38,6 @@ import com.example.cgz.bloodsoulnote2.service.ServiceActivity;
 import com.example.cgz.bloodsoulnote2.thread.ThreadActivity;
 import com.example.cgz.bloodsoulnote2.ui.UIActivity;
 import com.example.cgz.bloodsoulnote2.video.VideoActivity;
-import com.example.cgz.bloodsoulnote2.video.vitamio.VitamioActivity;
 import com.example.cgz.bloodsoulnote2.view.ViewActivity;
 import com.example.cgz.bloodsoulnote2.wifi.WifiP2PActivity;
 import com.example.cgz.bloodsoulnote2.window.WindowActivity;
@@ -96,6 +96,7 @@ public class MainActivity extends BaseActivity {
         mDatas.add("30 - 静默安装");
         mDatas.add("31 - RX");
         mDatas.add("32 - 音视频");
+        mDatas.add("33 - 各类跳转 Intent");
     }
 
     private void clickRecyclerItem(int position) {
@@ -191,6 +192,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case 32:
                 startActivity(MediaActivity.class);
+                break;
+            case 33:
+                startActivity(IntentActivity.class);
                 break;
         }
     }

@@ -29,7 +29,7 @@ public class DialogActivity extends BaseActivity {
 
     public void clickBtn1(View view) {
         final AlertDialog.Builder normalDialog = new AlertDialog.Builder(DialogActivity.this);
-        normalDialog.setIcon(R.mipmap.ic_launcher);
+        normalDialog.setIcon(R.drawable.launch);
         normalDialog.setTitle("我是一个普通Dialog");
         normalDialog.setMessage("你要点击哪一个按钮呢?");
         normalDialog.setPositiveButton("确定",
@@ -52,7 +52,7 @@ public class DialogActivity extends BaseActivity {
 
     public void clickBtn2(View view) {
         AlertDialog.Builder normalDialog = new AlertDialog.Builder(DialogActivity.this);
-        normalDialog.setIcon(R.mipmap.ic_launcher);
+        normalDialog.setIcon(R.drawable.launch);
         normalDialog.setTitle("我是一个普通Dialog").setMessage("你要点击哪一个按钮呢?");
         normalDialog.setPositiveButton("按钮1",
                 new DialogInterface.OnClickListener() {
