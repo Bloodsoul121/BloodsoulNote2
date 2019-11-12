@@ -15,6 +15,11 @@
             android:onClick="clickBtn1"
             android:text="应用商店" />
 
+        <Button
+            style="@style/normal_button_style"
+            android:onClick="clickBtn2"
+            android:text="拨打电话" />
+
     </LinearLayout>
 
 </ScrollView>
