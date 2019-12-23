@@ -45,7 +45,8 @@
         android:supportsRtl="true"
         android:theme="@style/MainApplicationTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".intent.IntentActivity"></activity>
+        <activity android:name=".notify.NotifyActivity"></activity>
+        <activity android:name=".intent.IntentActivity" />
         <activity
             android:name=".main.MainActivity"
             android:screenOrientation="portrait">

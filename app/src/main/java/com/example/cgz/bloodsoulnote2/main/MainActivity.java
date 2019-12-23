@@ -31,6 +31,7 @@ import com.example.cgz.bloodsoulnote2.menu.MenuActivity;
 import com.example.cgz.bloodsoulnote2.mode.ModeActivity;
 import com.example.cgz.bloodsoulnote2.mvvm.MvvmActivity;
 import com.example.cgz.bloodsoulnote2.net.NetActivity;
+import com.example.cgz.bloodsoulnote2.notify.NotifyActivity;
 import com.example.cgz.bloodsoulnote2.otherframe.OtherFrameActivity;
 import com.example.cgz.bloodsoulnote2.photoframe.PhotoFrameActivity;
 import com.example.cgz.bloodsoulnote2.rx.RxActivity;
@@ -97,6 +98,7 @@ public class MainActivity extends BaseActivity {
         mDatas.add("31 - RX");
         mDatas.add("32 - 音视频");
         mDatas.add("33 - 各类跳转 Intent");
+        mDatas.add("34 - notify");
     }
 
     private void clickRecyclerItem(int position) {
@@ -195,6 +197,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case 33:
                 startActivity(IntentActivity.class);
+                break;
+            case 34:
+                startActivity(NotifyActivity.class);
                 break;
         }
     }
